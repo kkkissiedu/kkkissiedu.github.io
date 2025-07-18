@@ -228,6 +228,15 @@ collections:
   talks:
     output: true
     permalink: /:collection/:path/
+  machinelearning:
+    output: true
+    permalink: /:collection/:path/
+  structuralengineering:
+    output: true
+    permalink: /:collection/:path/
+  3ddesign:
+    output: true
+    permalink: /:collection/:path/
 
 
 # These settings control how pages and collections are included in the site
