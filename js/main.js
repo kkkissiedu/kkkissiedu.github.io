@@ -109,8 +109,8 @@ document.addEventListener('DOMContentLoaded', function() {
         if (!projectGrid || !modalsContainer) return;
         projectGrid.innerHTML = '';
         modalsContainer.innerHTML = '';
-        const categoryColors = { engineering: 'text-indigo-400', ml: 'text-pink-400', design: 'text-teal-400' };
-        const modalCategoryColors = { engineering: 'text-indigo-400 bg-indigo-900', ml: 'text-pink-400 bg-pink-900', design: 'text-teal-400 bg-teal-900' };
+        const categoryColors = { engineering: 'text-indigo-400', ML: 'text-pink-400', design: 'text-teal-400' };
+        const modalCategoryColors = { engineering: 'text-indigo-400 bg-indigo-900', ML: 'text-pink-400 bg-pink-900', design: 'text-teal-400 bg-teal-900' };
 
         projects.forEach(project => {
             const cardHtml = `

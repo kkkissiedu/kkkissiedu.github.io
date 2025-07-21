@@ -26,7 +26,7 @@ const projectsData = [
   },
   {
     "id": "modal-2",
-    "category": "ml",
+    "category": "ML",
     "title": "Concrete Crack Segmentation",
     "short_description": "A CNN model to detect and segment cracks in concrete surfaces from images.",
     "cover_image": "images/projects/ML/ccseg_main.jpg", // Local path
