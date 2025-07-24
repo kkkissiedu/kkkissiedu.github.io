@@ -8,6 +8,11 @@ document.addEventListener('DOMContentLoaded', function() {
     const filterContainer = document.getElementById('filter-container');
     const cursorDot = document.getElementById('cursor-dot');
     const cursorOutline = document.getElementById('cursor-outline');
+    const cvModalBtn = document.getElementById('cv-modal-btn');
+    const cvModal = document.getElementById('cv-modal');
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+    const lightboxClose = document.getElementById('lightbox-close');
 
     // --- Custom Cursor Logic ---
     if (cursorDot && cursorOutline) {
@@ -20,14 +25,13 @@ document.addEventListener('DOMContentLoaded', function() {
             cursorOutline.style.top = `${posY}px`;
         });
 
-        // Use a single listener on the body to handle hover states for performance
         document.body.addEventListener('mouseover', (e) => {
-            if (e.target.closest('a, button, .project-card, .cta-link, .nav-link, .bento-item')) {
+            if (e.target.closest('a, button, .project-card, .cta-link, .nav-link, .bento-item, .slide-image')) {
                 document.body.classList.add('cursor-hovered');
             }
         });
         document.body.addEventListener('mouseout', (e) => {
-            if (e.target.closest('a, button, .project-card, .cta-link, .nav-link, .bento-item')) {
+            if (e.target.closest('a, button, .project-card, .cta-link, .nav-link, .bento-item, .slide-image')) {
                 document.body.classList.remove('cursor-hovered');
             }
         });
@@ -96,21 +100,52 @@ document.addEventListener('DOMContentLoaded', function() {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('visible');
-                    observer.unobserve(entry.target); // Optional: stop observing after animation
+                    observer.unobserve(entry.target);
                 }
             });
         }, { threshold: 0.15 });
         animatedElements.forEach(el => observer.observe(el));
     }
     initScrollAnimations();
+    
+    // --- CV Modal Logic ---
+    if (cvModalBtn && cvModal) {
+        cvModalBtn.addEventListener('click', () => openModal(cvModal));
+        cvModal.addEventListener('click', (e) => {
+            if (e.target.classList.contains('modal-close') || e.target === cvModal) {
+                closeModal(cvModal);
+            }
+        });
+    }
+
+    // --- Lightbox Logic ---
+    if (lightbox && lightboxImg && lightboxClose) {
+        lightboxClose.addEventListener('click', () => closeLightbox());
+        lightbox.addEventListener('click', (e) => {
+            if (e.target === lightbox) {
+                closeLightbox();
+            }
+        });
+    }
+
+    function openLightbox(imgSrc) {
+        if (!lightbox || !lightboxImg) return;
+        lightboxImg.setAttribute('src', imgSrc);
+        lightbox.classList.add('visible');
+    }
+
+    function closeLightbox() {
+        if (!lightbox) return;
+        lightbox.classList.remove('visible');
+    }
 
     // --- Project Display and Event Handling ---
     function displayProjects(projects) {
         if (!projectGrid || !modalsContainer) return;
         projectGrid.innerHTML = '';
         modalsContainer.innerHTML = '';
-        const categoryColors = { engineering: 'text-indigo-400', ML: 'text-pink-400', design: 'text-teal-400' };
-        const modalCategoryColors = { engineering: 'text-indigo-400 bg-indigo-900', ML: 'text-pink-400 bg-pink-900', design: 'text-teal-400 bg-teal-900' };
+        const categoryColors = { engineering: 'text-indigo-400', 'ml-research': 'text-pink-400', design: 'text-teal-400' };
+        const modalCategoryColors = { engineering: 'text-indigo-400 bg-indigo-900', 'ml-research': 'text-pink-400 bg-pink-900', design: 'text-teal-400 bg-teal-900' };
 
         projects.forEach(project => {
             const cardHtml = `
@@ -136,8 +171,9 @@ document.addEventListener('DOMContentLoaded', function() {
                              <button class="modal-close text-gray-400 hover:text-white text-4xl font-light cta-link">&times;</button>
                         </div>
                         <div class="flex-grow p-4 md:p-8 overflow-y-auto grid md:grid-cols-2 gap-6 md:gap-8">
-                            <div class="slideshow-container relative w-full h-64 md:h-full">
-                                ${project.slideshow_images.map((img, index) => `<div class="slide ${index !== 0 ? 'hidden' : ''}"><img src="${img}" class="rounded-lg w-full h-full object-cover"></div>`).join('')}
+                            <div class="slideshow-container relative w-full h-64 md:h-full group">
+                                ${project.slideshow_images.map((img, index) => `<div class="slide ${index !== 0 ? 'hidden' : ''}"><img src="${img}" class="slide-image rounded-lg w-full h-full object-cover cursor-pointer"></div>`).join('')}
+                                <div class="expand-text">Click to expand image</div>
                                 <button class="prev-slide absolute top-1/2 left-2 -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 rounded-full leading-none cta-link">&lt;</button>
                                 <button class="next-slide absolute top-1/2 right-2 -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 rounded-full leading-none cta-link">&gt;</button>
                             </div>
@@ -178,8 +214,15 @@ document.addEventListener('DOMContentLoaded', function() {
         document.body.addEventListener('click', (e) => {
             const card = e.target.closest('.project-card');
             if (card) openModal(document.getElementById(card.dataset.modalTarget));
-            const modal = e.target.closest('.project-detail-modal');
-            if (modal && (e.target.classList.contains('modal-close') || e.target === modal)) closeModal(modal);
+            
+            const projectModal = e.target.closest('.project-detail-modal');
+            if (projectModal && (e.target.classList.contains('modal-close') || e.target === projectModal)) {
+                closeModal(projectModal);
+            }
+
+            if (e.target.classList.contains('slide-image')) {
+                openLightbox(e.target.src);
+            }
         });
     }
 
@@ -188,7 +231,9 @@ document.addEventListener('DOMContentLoaded', function() {
         modal.classList.remove('invisible', 'opacity-0');
         modal.querySelector('.modal-content').classList.remove('opacity-0', 'scale-95');
         document.body.style.overflow = 'hidden';
-        setupSlideshow(modal);
+        if (modal.classList.contains('project-detail-modal')) {
+            setupSlideshow(modal);
+        }
     }
 
     function closeModal(modal) {
@@ -221,8 +266,6 @@ document.addEventListener('DOMContentLoaded', function() {
         showSlide(0);
     }
 
-    // --- Initialize Projects ---
-    // The projectsData variable is now available globally from projects-data.js
     if (typeof projectsData !== 'undefined') {
         displayProjects(projectsData);
         setupProjectEventListeners();

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kwabena Kissiedu - Structural Engineering | Machine Learning | 3D Design</title>
+    <title>Kwabena Kissiedu - Structural Engineering | ML & Research | 3D Design</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -51,13 +51,14 @@
     <section id="about" class="py-20 md:py-32 bg-[#101010]">
         <div class="container mx-auto px-4 sm:px-6">
             <div class="grid md:grid-cols-5 gap-8 md:gap-12 items-center">
-                <div class="md:col-span-2 animated-element"><img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=2070&auto=format&fit=crop" onerror="this.onerror=null;this.src='https://placehold.co/600x800/101010/e0e0e0?text=Alex+Doe';" alt="Kwabena Kissiedu" class="rounded-lg shadow-2xl w-full h-auto object-cover"></div>
+                <div class="md:col-span-2 animated-element"><img src="images/kk.jpg" onerror="this.onerror=null;this.src='https://placehold.co/600x800/101010/e0e0e0?text=Alex+Doe';" alt="Kwabena Kissiedu" class="rounded-lg shadow-2xl w-full h-auto object-cover"></div>
                 <div class="md:col-span-3 animated-element">
                     <h2 class="text-3xl md:text-4xl font-bold mb-4">About Me</h2>
                     <p class="text-gray-400 mb-6 text-base md:text-lg">I am a passionate engineer and innovator with a unique blend of expertise in structural analysis, predictive modeling, and computational design. My goal is to leverage cutting-edge technology to solve complex engineering challenges and contribute to the development of next-generation infrastructure.</p>
                     <p class="text-gray-400 mb-8 text-base md:text-lg">With a strong foundation in civil engineering principles and advanced skills in Python, TensorFlow, and parametric design tools, I thrive on transforming complex data into actionable insights and elegant design solutions.</p>
-                    <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
-                        <a href="#" class="w-full sm:w-auto text-center bg-gray-800 hover:bg-gray-700 text-white font-semibold py-3 px-6 rounded-lg transition-colors cta-link">Download CV</a>
+                    <div class="flex flex-wrap gap-4">
+                        <button id="cv-modal-btn" class="w-full sm:w-auto text-center bg-gray-800 hover:bg-gray-700 text-white font-semibold py-3 px-6 rounded-lg transition-colors cta-link">Download CV</button>
+                        <a href="files/structural-portfolio.pdf" download class="w-full sm:w-auto text-center bg-gray-800 hover:bg-gray-700 text-white font-semibold py-3 px-6 rounded-lg transition-colors cta-link">Download Portfolio</a>
                         <a href="#contact" class="w-full sm:w-auto text-center bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-3 px-6 rounded-lg transition-colors cta-link">Contact Me</a>
                     </div>
                 </div>
@@ -73,7 +74,7 @@
             </div>
             <div class="grid md:grid-cols-3 gap-8">
                 <div class="service-card animated-element"><h3 class="text-2xl font-bold mb-4 text-indigo-400">Structural Engineering</h3><ul class="space-y-2 text-gray-400"><li>Finite Element Analysis (FEA)</li><li>Seismic Retrofitting & Analysis</li><li>Building Information Modeling (BIM)</li><li>Code Compliance & Permitting</li></ul></div>
-                <div class="service-card animated-element"><h3 class="text-2xl font-bold mb-4 text-pink-400">Machine Learning</h3><ul class="space-y-2 text-gray-400"><li>Predictive Modeling</li><li>Computer Vision Systems</li><li>Structural Health Monitoring AI</li><li>Data-Driven Optimization</li></ul></div>
+                <div class="service-card animated-element"><h3 class="text-2xl font-bold mb-4 text-pink-400">ML & Research</h3><ul class="space-y-2 text-gray-400"><li>Predictive Modeling</li><li>Computer Vision Systems</li><li>Structural Health Monitoring AI</li><li>Data-Driven Optimization</li></ul></div>
                 <div class="service-card animated-element"><h3 class="text-2xl font-bold mb-4 text-teal-400">3D Design & Visualization</h3><ul class="space-y-2 text-gray-400"><li>Parametric & Generative Design</li><li>Architectural Visualization</li><li>3D Modeling & Rendering</li><li>Virtual Reality Experiences</li></ul></div>
             </div>
         </div>
@@ -85,7 +86,7 @@
             <div class="flex flex-wrap justify-center gap-2 mb-12 animated-element" id="filter-container">
                 <button class="filter-btn active py-2 px-4 rounded-lg font-semibold transition-colors cta-link" data-filter="all">All</button>
                 <button class="filter-btn py-2 px-4 rounded-lg font-semibold transition-colors text-gray-300 cta-link" data-filter="engineering">Structural Engineering</button>
-                <button class="filter-btn py-2 px-4 rounded-lg font-semibold transition-colors text-gray-300 cta-link" data-filter="ML">Machine Learning</button>
+                <button class="filter-btn py-2 px-4 rounded-lg font-semibold transition-colors text-gray-300 cta-link" data-filter="ml-research">ML & Research</button>
                 <button class="filter-btn py-2 px-4 rounded-lg font-semibold transition-colors text-gray-300 cta-link" data-filter="design">3D Design</button>
             </div>
             <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8" id="project-grid"></div>
@@ -99,56 +100,26 @@
                 <div>
                     <h3 class="text-2xl font-bold mb-6 text-center text-indigo-400 animated-element">Structural Engineering</h3>
                     <div class="bento-grid">
-                        <div class="bento-item animated-element flex-col space-y-4" style="--col: 2; --row: 1;">
-                            <img src="images/logos/sap2000.png" alt="SAP2000 Logo" class="bento-icon" onerror="this.style.display='none'">
-                            <h3 class="text-xl font-semibold">SAP2000 / ETABS</h3>
-                        </div>
-                        <div class="bento-item animated-element flex-col space-y-4">
-                            <img src="images/logos/revit.png" alt="Revit Logo" class="bento-icon" onerror="this.style.display='none'">
-                            <h3 class="text-xl font-semibold">Revit</h3>
-                        </div>
-                        <div class="bento-item animated-element flex-col space-y-4">
-                            <img src="images/logos/autocad.png" alt="AutoCAD Logo" class="bento-icon" onerror="this.style.display='none'">
-                            <h3 class="text-xl font-semibold">AutoCAD</h3>
-                        </div>
+                        <div class="bento-item animated-element flex-col space-y-4" style="--col: 2; --row: 1;"><img src="images/logos/sap2000.png" alt="SAP2000 Logo" class="bento-icon" onerror="this.style.display='none'"><h3 class="text-xl font-semibold">SAP2000 / ETABS</h3></div>
+                        <div class="bento-item animated-element flex-col space-y-4"><img src="images/logos/revit.png" alt="Revit Logo" class="bento-icon" onerror="this.style.display='none'"><h3 class="text-xl font-semibold">Revit</h3></div>
+                        <div class="bento-item animated-element flex-col space-y-4"><img src="images/logos/autocad.png" alt="AutoCAD Logo" class="bento-icon" onerror="this.style.display='none'"><h3 class="text-xl font-semibold">AutoCAD</h3></div>
                     </div>
                 </div>
                 <div>
-                    <h3 class="text-2xl font-bold mb-6 text-center text-pink-400 animated-element">Machine Learning & Data Science</h3>
+                    <h3 class="text-2xl font-bold mb-6 text-center text-pink-400 animated-element">ML & Research</h3>
                     <div class="bento-grid">
-                        <div class="bento-item animated-element flex-col space-y-4" style="--col: 2; --row: 2;">
-                            <img src="images/logos/python.png" alt="Python Logo" class="bento-icon" onerror="this.style.display='none'">
-                            <h3 class="text-2xl font-bold">Python</h3>
-                        </div>
-                        <div class="bento-item animated-element flex-col space-y-4">
-                            <img src="images/logos/tensorflow.png" alt="TensorFlow Logo" class="bento-icon" onerror="this.style.display='none'">
-                            <h3 class="text-xl font-semibold">TensorFlow</h3>
-                        </div>
-                        <div class="bento-item animated-element flex-col space-y-4">
-                            <img src="images/logos/opencv.png" alt="OpenCV Logo" class="bento-icon" onerror="this.style.display='none'">
-                            <h3 class="text-xl font-semibold">OpenCV</h3>
-                        </div>
-                        <div class="bento-item animated-element flex-col space-y-4" style="--col: 2; --row: 1;">
-                            <img src="images/logos/sql.png" alt="SQL Logo" class="bento-icon" onerror="this.style.display='none'">
-                            <h3 class="text-xl font-semibold">SQL</h3>
-                        </div>
+                        <div class="bento-item animated-element flex-col space-y-4" style="--col: 2; --row: 2;"><img src="images/logos/python.png" alt="Python Logo" class="bento-icon" onerror="this.style.display='none'"><h3 class="text-2xl font-bold">Python</h3></div>
+                        <div class="bento-item animated-element flex-col space-y-4"><img src="images/logos/tensorflow.png" alt="TensorFlow Logo" class="bento-icon" onerror="this.style.display='none'"><h3 class="text-xl font-semibold">TensorFlow</h3></div>
+                        <div class="bento-item animated-element flex-col space-y-4"><img src="images/logos/opencv.png" alt="OpenCV Logo" class="bento-icon" onerror="this.style.display='none'"><h3 class="text-xl font-semibold">OpenCV</h3></div>
+                        <div class="bento-item animated-element flex-col space-y-4" style="--col: 2; --row: 1;"><img src="images/logos/sql.png" alt="SQL Logo" class="bento-icon" onerror="this.style.display='none'"><h3 class="text-xl font-semibold">SQL</h3></div>
                     </div>
                 </div>
                 <div>
                     <h3 class="text-2xl font-bold mb-6 text-center text-teal-400 animated-element">3D Design & Visualization</h3>
                     <div class="bento-grid">
-                        <div class="bento-item animated-element flex-col space-y-4" style="--col: 2; --row: 1;">
-                           <img src="images/logos/rhino.png" alt="Rhino 3D Logo" class="bento-icon" onerror="this.style.display='none'">
-                            <h3 class="text-xl font-semibold">Rhino & Grasshopper</h3>
-                        </div>
-                        <div class="bento-item animated-element flex-col space-y-4">
-                            <img src="images/logos/blender.png" alt="Blender Logo" class="bento-icon" onerror="this.style.display='none'">
-                            <h3 class="text-xl font-semibold">Blender</h3>
-                        </div>
-                        <div class="bento-item animated-element flex-col space-y-4">
-                           <img src="images/logos/substance.png" alt="Substance Painter Logo" class="bento-icon" onerror="this.style.display='none'">
-                            <h3 class="text-xl font-semibold">Substance Painter</h3>
-                        </div>
+                        <div class="bento-item animated-element flex-col space-y-4" style="--col: 2; --row: 1;"><img src="images/logos/rhino.png" alt="Rhino 3D Logo" class="bento-icon" onerror="this.style.display='none'"><h3 class="text-xl font-semibold">Rhino & Grasshopper</h3></div>
+                        <div class="bento-item animated-element flex-col space-y-4"><img src="images/logos/blender.png" alt="Blender Logo" class="bento-icon" onerror="this.style.display='none'"><h3 class="text-xl font-semibold">Blender</h3></div>
+                        <div class="bento-item animated-element flex-col space-y-4"><img src="images/logos/substance.png" alt="Substance Painter Logo" class="bento-icon" onerror="this.style.display='none'"><h3 class="text-xl font-semibold">Substance Painter</h3></div>
                     </div>
                 </div>
             </div>
@@ -172,9 +143,28 @@
     </section>
 
     <footer class="py-8"><div class="container mx-auto px-4 sm:px-6 text-center text-gray-500"><p class="text-sm">&copy; 2024 Kwabena Kissiedu. All Rights Reserved.</p></div></footer>
+    
+    <!-- Modals Container -->
     <div id="modals-container"></div>
 
-    <!-- IMPORTANT: Load data script BEFORE the main logic script -->
+    <!-- CV Download Modal -->
+    <div id="cv-modal" class="modal fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center p-4 opacity-0 invisible z-[101]">
+        <div class="modal-content bg-[#181818] rounded-lg max-w-sm w-full p-8 relative transform scale-95 text-center">
+            <button class="modal-close absolute top-4 right-4 text-gray-400 hover:text-white text-3xl font-light cta-link">&times;</button>
+            <h2 class="text-2xl font-bold mb-6">Download CV</h2>
+            <div class="flex flex-col space-y-4">
+                <a href="files/academic-cv.pdf" download class="w-full text-center bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-3 px-6 rounded-lg transition-colors cta-link">Academic CV</a>
+                <a href="files/professional-cv.pdf" download class="w-full text-center bg-gray-700 hover:bg-gray-600 text-white font-semibold py-3 px-6 rounded-lg transition-colors cta-link">Professional CV</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Fullscreen Image Lightbox -->
+    <div id="lightbox" class="fixed inset-0 bg-black bg-opacity-90 flex items-center justify-center p-4 opacity-0 invisible z-[102]">
+        <img id="lightbox-img" src="" alt="Expanded project image" class="max-w-full max-h-full object-contain">
+        <button id="lightbox-close" class="absolute top-6 right-8 text-white text-5xl font-light cta-link">&times;</button>
+    </div>
+
     <script src="js/projects-data.js"></script>
     <script src="js/main.js"></script>
 </body>

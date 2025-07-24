@@ -150,12 +150,46 @@ body.cursor-hovered #cursor-outline {
     background-color: #252525;
 }
 
-/* New style for the PNG icons */
 .bento-icon {
-    height: 48px; /* Adjust size as needed */
+    height: 48px;
     width: auto;
     max-width: 100%;
     object-fit: contain;
+}
+
+/* Fullscreen Image Lightbox */
+#lightbox {
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+#lightbox.visible {
+    opacity: 1;
+    visibility: visible;
+}
+#lightbox-img {
+    transform: scale(0.95);
+    transition: transform 0.3s ease;
+}
+#lightbox.visible #lightbox-img {
+    transform: scale(1);
+}
+
+/* Slideshow Expand Text */
+.slideshow-container .expand-text {
+    position: absolute;
+    bottom: 1rem;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 0.25rem 0.75rem;
+    border-radius: 9999px;
+    font-size: 0.75rem;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+}
+.slideshow-container:hover .expand-text {
+    opacity: 1;
 }
 
 
