@@ -194,6 +194,20 @@ document.addEventListener('DOMContentLoaded', function() {
                     </div>
                 </div>`;
             projectGrid.insertAdjacentHTML('beforeend', cardHtml);
+            
+            let caseStudyHtml;
+            if (project.category === 'design') {
+                caseStudyHtml = `
+                    <div><h4 class="font-bold text-teal-400 mb-2">Project Overview</h4><p class="text-gray-300">${project.case_study.overview || ''}</p></div>
+                    <div><h4 class="font-bold text-indigo-400 mb-2">My Contributions</h4><p class="text-gray-300">${project.case_study.contributions || ''}</p></div>
+                `;
+            } else {
+                caseStudyHtml = `
+                    <div><h4 class="font-bold text-pink-400 mb-2">The Problem</h4><p class="text-gray-300">${project.case_study.problem}</p></div>
+                    <div><h4 class="font-bold text-teal-400 mb-2">The Process</h4><p class="text-gray-300">${project.case_study.process}</p></div>
+                    <div><h4 class="font-bold text-indigo-400 mb-2">The Outcome</h4><p class="text-gray-300">${project.case_study.outcome}</p></div>
+                `;
+            }
 
             const modalHtml = `
                 <div id="${project.id}" class="project-detail-modal modal fixed inset-0 bg-black bg-opacity-90 p-4 sm:p-8 opacity-0 invisible z-[100] overflow-y-auto flex items-center justify-center">
@@ -213,9 +227,7 @@ document.addEventListener('DOMContentLoaded', function() {
                                 <h3 class="text-2xl md:text-4xl font-bold mb-4 section-title">${project.title}</h3>
                                 <span class="text-xs font-semibold capitalize ${modalCategoryColors[project.category] || 'text-gray-400 bg-gray-900'} bg-opacity-50 py-1 px-3 rounded-full">${project.category.replace('-', ' ')}</span>
                                 <div class="my-6 space-y-6 text-sm md:text-base">
-                                    <div><h4 class="font-bold text-pink-400 mb-2">The Problem</h4><p class="text-gray-300">${project.case_study.problem}</p></div>
-                                    <div><h4 class="font-bold text-teal-400 mb-2">The Process</h4><p class="text-gray-300">${project.case_study.process}</p></div>
-                                    <div><h4 class="font-bold text-indigo-400 mb-2">The Outcome</h4><p class="text-gray-300">${project.case_study.outcome}</p></div>
+                                    ${caseStudyHtml}
                                 </div>
                                 <h4 class="text-lg md:text-xl font-bold mb-3">Technologies Used:</h4>
                                 <ul class="flex flex-wrap gap-2">

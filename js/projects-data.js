@@ -292,16 +292,125 @@ const projectsData = [
       "images/projects/3D/hype 7.webp",  // Local path
     ],
     "case_study": {
-        "project overview": "Made 3D Assets for MTN HYPE Event in Togo. Assets were used in showcasing event souvenirs and creating Snapchat AR Filters.",
-        "process": "A generative algorithm was developed in Grasshopper for Rhino 3D. This algorithm was driven by a solar radiation analysis using Ladybug Tools, which parametrically controlled the geometry of shading elements across the facade based on their orientation and exposure to the sun.",
-        "outcome": "The final, optimized design resulted in a projected 15% reduction in annual cooling loads. The generative process also produced a visually striking and dynamic building exterior that responds to its environmental context, successfully blending performance with high-quality design."
+        "overview": "Made 3D Assets for MTN HYPE Event in Togo. Assets were used in showcasing event souvenirs and creating Snapchat AR Filters.",
+        "contributions": "Modeled and textured high quality 3D models of souvenirs using Blender and Substance Painter."
     },
     "technologies": [
-      "Rhino 3D",
-      "Grasshopper",
-      "Ladybug Tools",
       "Blender",
-      "Substance Painter"
+      "Adobe Substance Painter",
+      "Adobe Photoshop",
+      "Adobe Illustrator",
+    ]
+  },
+  {
+    "id": "modal-12",
+    "order": 12,
+    "category": "design",
+    "title": "Unilever Products Showcase",
+    "short_description": "Immersive VR showcase of Unilever products",
+    "cover_image": "images/projects/3D/unilever_main.svg", // Local path
+    "slideshow_images": [
+      "images/projects/3D/unilever_main.svg",
+      "images/projects/3D/UNILEVER1.webp",  // Local path
+      "images/projects/3D/UNILEVER2.webp",  // Local path
+      "images/projects/3D/UNILEVER3.webp",  // Local path
+      "images/projects/3D/UNILEVER4.webp",  // Local path
+    ],
+    "case_study": {
+        "overview": "Created 3D models of Unilever products for a Unilever board VR meeting to showcase the company's progress since inception.",
+        "contributions": "Modeled and textured 3D versions of products using Blender, Photoshop, Illustrator and Substance Painter"
+    },
+    "technologies": [
+      "Blender",
+      "Adobe Substance Painter",
+      "Adobe Photoshop",
+      "Adobe Illustrator",
+    ]
+  },
+  {
+    "id": "modal-13",
+    "order": 13,
+    "category": "design",
+    "title": "SuCasa  No.3 O'Grantson Communities Virtual Tour",
+    "short_description": "Immersive VR shopping experience for SuCasa customers",
+    "cover_image": "images/projects/3D/sucasa_main.webp", // Local path
+    "slideshow_images": [
+      "images/projects/3D/sucasa_main.webp",
+      "images/projects/3D/sucasa_3.webp",
+      "images/projects/3D/sucasa_7.webp",
+      "images/projects/3D/sucasa_10.webp",
+      "images/projects/3D/sucasa_8.webp",
+      "images/projects/3D/sucasa_2.webp",
+      "images/projects/3D/sucasa.webp",
+      "images/projects/3D/sucasa_5.webp",
+      "images/projects/3D/sucasa_6.webp",
+      "images/projects/3D/sucasa_1.webp",
+      "images/projects/3D/sucasa_4.webp",
+    ],
+    "case_study": {
+        "overview": "Online 3D virtual tour of No. 3 O'Grantson Communities for SuCasa Ghana. The interactive platform will allow users to create customized houses in real time and place orders.",
+        "contributions": "Modeling, UV Unwrapping, Texturing and setting up high-quality optimized game-ready assets for the virtual community using Blender, ZBrush, Substance Painter and Unity."
+    },
+    "technologies": [
+      "Blender",
+      "Adobe Substance Painter",
+      "Unity",
+    ]
+  },
+  {
+    "id": "modal-14",
+    "order": 14,
+    "category": "design",
+    "title": "Tidal Rave 23 & 24 (Canceled)",
+    "short_description": "Visuals for Tidal Rave Music Festival",
+    "cover_image": "images/projects/3D/tidal_main.webp", // Local path
+    "slideshow_images": [
+      "images/projects/3D/tidal_main.webp",
+      "images/projects/3D/tidal.webp",
+      "images/projects/3D/tidal_1.webp",
+      "images/projects/3D/tidal_2.webp",
+      "images/projects/3D/tidal_3.webp",
+      "images/projects/3D/tidal_4.webp",
+      "images/projects/3D/tidal_5.webp",
+      "images/projects/3D/tidal_6.webp",
+      "images/projects/3D/tidal_7.webp",
+
+    ],
+    "case_study": {
+        "overview": "Modeled 3D assets for artistes' background of the Tidal Rave Music Festival.",
+        "contributions": "Sculpted, Textured, Rigged and Animated 3D models of performing artistes. Created 3D versions of Tidal Rave logos."
+    },
+    "technologies": [
+      "Blender",
+      "Adobe Substance Painter",
+      "ZBrush",
+      "Marvelous Designer",
+      "Character Creator",
+      
+    ]
+  },
+  {
+    "id": "modal-15",
+    "order": 15,
+    "category": "design",
+    "title": "VAAL Bedroom Units AR/VR Experience",
+    "short_description": "3D Models of the 3 and 4 Bedroom Units for VAAL Real Estate Ghana",
+    "cover_image": "images/projects/3D/vaal_main.webp", // Local path
+    "slideshow_images": [
+      "images/projects/3D/vaal_main.webp",
+      "images/projects/3D/vaal_2.webp",
+      "images/projects/3D/vaal_3.webp",
+      "images/projects/3D/vaal_4.webp",
+      "images/projects/3D/vaal.webp",
+      "images/projects/3D/vaal_1.webp",
+    ],
+    "case_study": {
+        "overview": "3D AR and VR experience for showcasing VAAL Real Estate Ghana's 3 and 4 bedroom units",
+        "contributions": "Modeled, Textured and Optimized 3D models of the buildings for deployment in Unity and web AR"
+    },
+    "technologies": [
+      "Blender",
+      "Adobe Substance Painter",
     ]
   }
 ];
