@@ -211,48 +211,71 @@ body.cursor-hovered #cursor-outline {
 
 /* --- New Mobile & UI Changes --- */
 
-/* Change 3: Make the 'expand-text' always visible and more conspicuous */
+/* Make the 'expand-text' always visible and more conspicuous */
 .slideshow-container .expand-text {
     position: absolute;
     bottom: 1rem;
     left: 50%;
     transform: translateX(-50%);
-    background-color: rgba(0, 0, 0, 0.75); /* Made background darker */
+    background-color: rgba(0, 0, 0, 0.75);
     color: white;
-    padding: 0.35rem 0.85rem; /* Slightly larger padding */
+    padding: 0.35rem 0.85rem;
     border-radius: 9999px;
-    font-size: 0.80rem; /* Slightly larger font */
-    opacity: 1; /* Always visible */
+    font-size: 0.80rem;
+    opacity: 1;
     transition: opacity 0.3s ease;
     pointer-events: none;
 }
 
 /* Remove the hover effect for expand-text */
 .slideshow-container:hover .expand-text {
-    opacity: 1; /* Stays at 1, no change on hover */
+    opacity: 1;
 }
 
-/* Change 1: Hide the custom cursor on mobile devices */
+/* Hide the custom cursor on mobile devices */
 @media (max-width: 767px) {
     #cursor-dot, #cursor-outline {
         display: none;
     }
 
     body {
-        cursor: default; /* Restore the default system cursor */
+        cursor: default;
     }
 }
 
-/* Change 2: Style the project section as a slideshow on mobile */
-@media (max-width: 639px) { /* Tailwind's 'sm' breakpoint is 640px */
+/* --- Mobile-First Project Layout --- */
+
+/* Default: Mobile Slideshow Layout */
+#project-grid {
+    display: flex;
+    transition: transform 0.4s ease-in-out;
+}
+.project-card-wrapper {
+    flex: 0 0 100%;
+    padding: 0 0.5rem;
+}
+#mobile-project-nav {
+    display: flex;
+}
+
+/* Medium screens and up: Grid Layout */
+@media (min-width: 640px) { /* sm breakpoint */
     #project-grid {
-        display: flex; /* Change from grid to flex */
-        overflow-x: hidden; /* Hide the other projects */
-        scroll-behavior: smooth;
-        transition: transform 0.4s ease-in-out;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        transform: none !important; /* Ensure transform is disabled */
+    }
+    #mobile-project-nav {
+        display: none; /* Hide mobile nav on larger screens */
     }
     .project-card-wrapper {
-        flex: 0 0 100%; /* Each project takes the full width */
-        padding: 0 0.5rem; /* Add a little horizontal space */
+        padding: 0;
+    }
+}
+
+/* Large screens and up: 3-Column Grid */
+@media (min-width: 1024px) { /* lg breakpoint */
+    #project-grid {
+        grid-template-columns: repeat(3, 1fr);
     }
 }

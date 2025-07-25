@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const lightboxPrev = document.getElementById('lightbox-prev');
     const lightboxNext = document.getElementById('lightbox-next');
 
-    // --- NEW: Mobile Project Slideshow Elements ---
+    // --- Mobile Project Slideshow Elements ---
     const prevProjectBtn = document.getElementById('prev-project-btn');
     const nextProjectBtn = document.getElementById('next-project-btn');
     const projectCounter = document.getElementById('project-counter');
@@ -250,24 +250,30 @@ document.addEventListener('DOMContentLoaded', function() {
         updateFilteredProjects(); // Initial setup for slideshow
     }
 
-    // --- NEW: Mobile Slideshow Logic ---
+    // --- Mobile Slideshow Logic ---
     function updateFilteredProjects() {
         const activeFilter = filterContainer.querySelector('.active').dataset.filter;
-        visibleProjects = Array.from(document.querySelectorAll('.project-card-wrapper')).filter(card => {
-            const isVisible = (activeFilter === 'all' || card.dataset.category === activeFilter);
-            card.style.display = isVisible ? 'block' : 'none'; // Also handles desktop filtering
-            return isVisible;
+        // Get all project cards from the grid
+        const allProjectCards = Array.from(document.querySelectorAll('.project-card-wrapper'));
+        
+        // Hide all cards first
+        allProjectCards.forEach(card => card.style.display = 'none');
+        
+        // Determine which cards should be visible based on the filter
+        visibleProjects = allProjectCards.filter(card => {
+            return activeFilter === 'all' || card.dataset.category === activeFilter;
         });
+
+        // Show only the visible cards
+        visibleProjects.forEach(card => card.style.display = 'block');
+
         currentProjectIndex = 0;
         updateSlideshowView();
     }
 
     function updateSlideshowView() {
-        if (window.innerWidth < 640) { // Only apply slideshow logic on mobile
-            projectGrid.style.transform = `translateX(-${currentProjectIndex * 100}%)`;
-        } else {
-            projectGrid.style.transform = 'none'; // Reset transform on desktop
-        }
+        // This transform is now only relevant on mobile due to the new CSS.
+        projectGrid.style.transform = `translateX(-${currentProjectIndex * 100}%)`;
 
         if (projectCounter && visibleProjects.length > 0) {
             projectCounter.textContent = `${currentProjectIndex + 1} / ${visibleProjects.length}`;
@@ -282,12 +288,11 @@ document.addEventListener('DOMContentLoaded', function() {
                 if (e.target.classList.contains('filter-btn')) {
                     filterContainer.querySelector('.active').classList.remove('active');
                     e.target.classList.add('active');
-                    updateFilteredProjects(); // Re-run filter and update slideshow
+                    updateFilteredProjects();
                 }
             });
         }
         
-        // Mobile slideshow navigation
         if (nextProjectBtn) {
             nextProjectBtn.addEventListener('click', () => {
                 if (currentProjectIndex < visibleProjects.length - 1) {
@@ -305,7 +310,6 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         }
         
-        // General click handling for modals and lightbox
         document.body.addEventListener('click', (e) => {
             const card = e.target.closest('.project-card');
             if (card) openModal(document.getElementById(card.dataset.modalTarget));
@@ -323,6 +327,15 @@ document.addEventListener('DOMContentLoaded', function() {
                     openLightbox(project, slideIndex);
                 }
             }
+        });
+        
+        // Add a resize listener to reset transform on desktop view
+        window.addEventListener('resize', () => {
+             if (window.innerWidth >= 640) {
+                projectGrid.style.transform = 'none';
+             } else {
+                updateSlideshowView(); // re-apply transform if back to mobile
+             }
         });
     }
 
