@@ -16,13 +16,6 @@ document.addEventListener('DOMContentLoaded', function() {
     const lightboxPrev = document.getElementById('lightbox-prev');
     const lightboxNext = document.getElementById('lightbox-next');
 
-    // --- Mobile Project Slideshow Elements ---
-    const prevProjectBtn = document.getElementById('prev-project-btn');
-    const nextProjectBtn = document.getElementById('next-project-btn');
-    const projectCounter = document.getElementById('project-counter');
-    let currentProjectIndex = 0;
-    let visibleProjects = [];
-
     let currentLightboxProjectImages = [];
     let currentLightboxIndex = 0;
 
@@ -118,7 +111,6 @@ document.addEventListener('DOMContentLoaded', function() {
         }, { threshold: 0.15 });
         animatedElements.forEach(el => observer.observe(el));
     }
-    initScrollAnimations();
     
     // --- CV Modal Logic ---
     if (cvModalBtn && cvModal) {
@@ -247,39 +239,6 @@ document.addEventListener('DOMContentLoaded', function() {
             modalsContainer.insertAdjacentHTML('beforeend', modalHtml);
         });
         initScrollAnimations();
-        updateFilteredProjects(); // Initial setup for slideshow
-    }
-
-    // --- Mobile Slideshow Logic ---
-    function updateFilteredProjects() {
-        const activeFilter = filterContainer.querySelector('.active').dataset.filter;
-        // Get all project cards from the grid
-        const allProjectCards = Array.from(document.querySelectorAll('.project-card-wrapper'));
-        
-        // Hide all cards first
-        allProjectCards.forEach(card => card.style.display = 'none');
-        
-        // Determine which cards should be visible based on the filter
-        visibleProjects = allProjectCards.filter(card => {
-            return activeFilter === 'all' || card.dataset.category === activeFilter;
-        });
-
-        // Show only the visible cards
-        visibleProjects.forEach(card => card.style.display = 'block');
-
-        currentProjectIndex = 0;
-        updateSlideshowView();
-    }
-
-    function updateSlideshowView() {
-        // This transform is now only relevant on mobile due to the new CSS.
-        projectGrid.style.transform = `translateX(-${currentProjectIndex * 100}%)`;
-
-        if (projectCounter && visibleProjects.length > 0) {
-            projectCounter.textContent = `${currentProjectIndex + 1} / ${visibleProjects.length}`;
-        } else if (projectCounter) {
-            projectCounter.textContent = '0 / 0';
-        }
     }
 
     function setupProjectEventListeners() {
@@ -288,24 +247,10 @@ document.addEventListener('DOMContentLoaded', function() {
                 if (e.target.classList.contains('filter-btn')) {
                     filterContainer.querySelector('.active').classList.remove('active');
                     e.target.classList.add('active');
-                    updateFilteredProjects();
-                }
-            });
-        }
-        
-        if (nextProjectBtn) {
-            nextProjectBtn.addEventListener('click', () => {
-                if (currentProjectIndex < visibleProjects.length - 1) {
-                    currentProjectIndex++;
-                    updateSlideshowView();
-                }
-            });
-        }
-        if (prevProjectBtn) {
-            prevProjectBtn.addEventListener('click', () => {
-                if (currentProjectIndex > 0) {
-                    currentProjectIndex--;
-                    updateSlideshowView();
+                    const filter = e.target.dataset.filter;
+                    document.querySelectorAll('.project-card-wrapper').forEach(card => {
+                        card.style.display = (filter === 'all' || card.dataset.category === filter) ? 'block' : 'none';
+                    });
                 }
             });
         }
@@ -327,15 +272,6 @@ document.addEventListener('DOMContentLoaded', function() {
                     openLightbox(project, slideIndex);
                 }
             }
-        });
-        
-        // Add a resize listener to reset transform on desktop view
-        window.addEventListener('resize', () => {
-             if (window.innerWidth >= 640) {
-                projectGrid.style.transform = 'none';
-             } else {
-                updateSlideshowView(); // re-apply transform if back to mobile
-             }
         });
     }
 
@@ -383,6 +319,8 @@ document.addEventListener('DOMContentLoaded', function() {
         projectsData.sort((a, b) => (a.order || 999) - (b.order || 999));
         displayProjects(projectsData);
         setupProjectEventListeners();
+        // Call initScrollAnimations again after projects are displayed
+        initScrollAnimations(); 
     } else {
         console.error('Project data not found. Make sure projects-data.js is loaded correctly.');
     }

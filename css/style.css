@@ -189,34 +189,6 @@ body.cursor-hovered #cursor-outline {
     bottom: 1rem;
     left: 50%;
     transform: translateX(-50%);
-    background-color: rgba(0, 0, 0, 0.7);
-    color: white;
-    padding: 0.25rem 0.75rem;
-    border-radius: 9999px;
-    font-size: 0.75rem;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-    pointer-events: none;
-}
-.slideshow-container:hover .expand-text {
-    opacity: 1;
-}
-
-
-@media (min-width: 768px) {
-    .bento-grid {
-        grid-template-columns: repeat(4, 1fr);
-    }
-}
-
-/* --- New Mobile & UI Changes --- */
-
-/* Make the 'expand-text' always visible and more conspicuous */
-.slideshow-container .expand-text {
-    position: absolute;
-    bottom: 1rem;
-    left: 50%;
-    transform: translateX(-50%);
     background-color: rgba(0, 0, 0, 0.75);
     color: white;
     padding: 0.35rem 0.85rem;
@@ -243,39 +215,9 @@ body.cursor-hovered #cursor-outline {
     }
 }
 
-/* --- Mobile-First Project Layout --- */
-
-/* Default: Mobile Slideshow Layout */
-#project-grid {
-    display: flex;
-    transition: transform 0.4s ease-in-out;
-}
-.project-card-wrapper {
-    flex: 0 0 100%;
-    padding: 0 0.5rem;
-}
-#mobile-project-nav {
-    display: flex;
-}
-
-/* Medium screens and up: Grid Layout */
-@media (min-width: 640px) { /* sm breakpoint */
-    #project-grid {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        transform: none !important; /* Ensure transform is disabled */
-    }
-    #mobile-project-nav {
-        display: none; /* Hide mobile nav on larger screens */
-    }
-    .project-card-wrapper {
-        padding: 0;
-    }
-}
-
-/* Large screens and up: 3-Column Grid */
-@media (min-width: 1024px) { /* lg breakpoint */
-    #project-grid {
-        grid-template-columns: repeat(3, 1fr);
+/* This is all we need now for the project layout, handled by Tailwind classes */
+@media (min-width: 768px) {
+    .bento-grid {
+        grid-template-columns: repeat(4, 1fr);
     }
 }
