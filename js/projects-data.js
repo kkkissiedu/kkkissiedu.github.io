@@ -2,7 +2,7 @@
 const projectsData = [
   {
     "id": "modal-1",
-    "order": 1,
+    "order": 11,
     "category": "engineering",
     "title": "WD Studio Apartment",
     "short_description": "WD Studio Apartment",
@@ -58,7 +58,7 @@ const projectsData = [
   },
   {
     "id": "modal-3",
-    "order": 3,
+    "order": 8,
     "category": "engineering",
     "title": "Spectra Medical Center",
     "short_description": "Spectra Medical Center",
@@ -86,7 +86,7 @@ const projectsData = [
   },
   {
     "id": "modal-4",
-    "order": 4,
+    "order": 5,
     "category": "engineering",
     "title": "Zenkawa Hospital",
     "short_description": "Zenkawa Hospital",
@@ -113,9 +113,9 @@ const projectsData = [
   },
   {
     "id": "modal-5",
-    "order": 5,
+    "order": 1,
     "category": "ml-research",
-    "title": "Concrete Crack Segmentation",
+    "title": "Concrete Crack Segmentation Model",
     "short_description": "A CNN model for semantic segmentation of cracks in concrete surfaces from images.",
     "cover_image": "images/projects/ML/ccseg_main.webp", // Local path
     "slideshow_images": [
@@ -140,7 +140,7 @@ const projectsData = [
   },
   {
     "id": "modal-6",
-    "order": 6,
+    "order": 10,
     "category": "ml-research",
     "title": "Concrete Strength Prediction",
     "short_description": "A Random Forest Regressor Model for estimating the Compressive Strength of Concrete",
@@ -193,7 +193,7 @@ const projectsData = [
   },
   {
     "id": "modal-8",
-    "order": 8,
+    "order":15,
     "category": "ml-research",
     "title": "Earthquake Response Spectrum Estimator",
     "short_description": "Python script for quickly generating response spectra for earthquake engineering.",
@@ -217,7 +217,7 @@ const projectsData = [
   },
   {
     "id": "modal-9",
-    "order": 9,
+    "order": 4,
     "category": "ml-research",
     "title": "Assessing the Fatigue Life of Locally Manufactured Rebars produced from Scrap Metal (Ongoing)",
     "short_description": "Laboratory testing and Numerical simulation of Fatigue Life of Locally Manufactured Rebars ",
@@ -248,7 +248,7 @@ const projectsData = [
   },
   {
     "id": "modal-10",
-    "order": 10,
+    "order": 13,
     "category": "ml-research",
     "title": "Traffic Car Counter",
     "short_description": "Realtime Car Counter based on YOLOv8",
@@ -275,7 +275,7 @@ const projectsData = [
   },
   {
     "id": "modal-11",
-    "order": 11,
+    "order": 12,
     "category": "design",
     "title": "MTN HYPE Event",
     "short_description": "Branded 3D assets for MTN HYPE Event",
@@ -304,7 +304,7 @@ const projectsData = [
   },
   {
     "id": "modal-12",
-    "order": 12,
+    "order": 6,
     "category": "design",
     "title": "Unilever Products Showcase",
     "short_description": "Immersive VR showcase of Unilever products",
@@ -329,7 +329,7 @@ const projectsData = [
   },
   {
     "id": "modal-13",
-    "order": 13,
+    "order":9,
     "category": "design",
     "title": "SuCasa  No.3 O'Grantson Communities Virtual Tour",
     "short_description": "Immersive VR shopping experience for SuCasa customers",
@@ -391,7 +391,7 @@ const projectsData = [
   },
   {
     "id": "modal-15",
-    "order": 15,
+    "order": 3,
     "category": "design",
     "title": "VAAL Bedroom Units AR/VR Experience",
     "short_description": "3D Models of the 3 and 4 Bedroom Units for VAAL Real Estate Ghana",
