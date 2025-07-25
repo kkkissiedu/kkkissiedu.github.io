@@ -249,17 +249,50 @@ const projectsData = [
   {
     "id": "modal-10",
     "order": 10,
-    "category": "design",
-    "title": "Parametric Facade Design",
-    "short_description": "Generative design of a high-rise building facade for optimal solar shading.",
-    "cover_image": "images/projects/facade-cover.jpg", // Local path
+    "category": "ml-research",
+    "title": "Traffic Car Counter",
+    "short_description": "Realtime Car Counter based on YOLOv8",
+    "cover_image": "images/projects/ML/tcc_main.webp", // Local path
     "slideshow_images": [
-      "images/projects/facade-slide-1.jpg", // Local path
-      "images/projects/facade-slide-2.jpg", // Local path
-      "images/projects/facade-slide-3.jpg"  // Local path
+      "images/projects/ML/tcc_main.webp", // Local path
+      "images/projects/ML/tcc.webp", // Local path
+      "images/projects/ML/tcc_1.webp", // Local path
     ],
     "case_study": {
-        "problem": "High-rise buildings in urban environments often suffer from excessive solar heat gain, leading to high energy consumption for cooling. The challenge was to design a building facade that could mitigate this effect while remaining aesthetically pleasing.",
+        "problem": "Though the majority of rebars used in construction of residential and commercial buildings in Ghana are locally-sourced, there is a lack of extensive research into the fatigue life of these rebars under low-cycle, high intensity loading.",
+        "process": "OpenCV and CVZone were utilized for processing of video feed. Backbone was built on YOLOv8 for detection and the SORT algorithm for robust object tracking.",
+        "outcome": "Realtime computer vision model that detects multiple vehicle types, assigns unique IDs to each instance and counts vehicles after crossing a defined virtual line."
+    },
+    "technologies": [
+      "Python & Jupyter Notebooks",
+      "Convolutional Neural Networks (CNN)",
+      "PyTorch",
+      "OpenCV",
+      "cvzone",
+      "YOLOv8",
+      "SORT",
+    ]
+  },
+  {
+    "id": "modal-11",
+    "order": 11,
+    "category": "design",
+    "title": "MTN HYPE Event",
+    "short_description": "Branded 3D assets for MTN HYPE Event",
+    "cover_image": "images/projects/3D/hype_main.avif", // Local path
+    "slideshow_images": [
+      "images/projects/3D/hype_main.avif",
+      "images/projects/3D/hype_7.webp",  // Local path
+      "images/projects/3D/hype 1.webp", // Local path
+      "images/projects/3D/hype 2.webp",  // Local path
+      "images/projects/3D/hype 3.webp",  // Local path
+      "images/projects/3D/hype 4.webp",  // Local path
+      "images/projects/3D/hype 5.webp",  // Local path
+      "images/projects/3D/hype 6.webp",  // Local path
+      "images/projects/3D/hype 7.webp",  // Local path
+    ],
+    "case_study": {
+        "project overview": "Made 3D Assets for MTN HYPE Event in Togo. Assets were used in showcasing event souvenirs and creating Snapchat AR Filters.",
         "process": "A generative algorithm was developed in Grasshopper for Rhino 3D. This algorithm was driven by a solar radiation analysis using Ladybug Tools, which parametrically controlled the geometry of shading elements across the facade based on their orientation and exposure to the sun.",
         "outcome": "The final, optimized design resulted in a projected 15% reduction in annual cooling loads. The generative process also produced a visually striking and dynamic building exterior that responds to its environmental context, successfully blending performance with high-quality design."
     },
