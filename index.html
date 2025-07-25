@@ -89,6 +89,13 @@
                 <button class="filter-btn py-2 px-4 rounded-lg font-semibold transition-colors text-gray-300 cta-link" data-filter="ml-research">ML & Research</button>
                 <button class="filter-btn py-2 px-4 rounded-lg font-semibold transition-colors text-gray-300 cta-link" data-filter="design">3D Design</button>
             </div>
+
+            <div id="mobile-project-nav" class="sm:hidden flex justify-center items-center gap-6 mb-8">
+                <button id="prev-project-btn" class="bg-indigo-600 hover:bg-indigo-700 text-white font-bold rounded-full w-10 h-10 flex items-center justify-center text-xl cta-link">&lt;</button>
+                <span id="project-counter" class="font-semibold text-lg text-gray-300"></span>
+                <button id="next-project-btn" class="bg-indigo-600 hover:bg-indigo-700 text-white font-bold rounded-full w-10 h-10 flex items-center justify-center text-xl cta-link">&gt;</button>
+            </div>
+
             <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8" id="project-grid"></div>
         </div>
     </section>

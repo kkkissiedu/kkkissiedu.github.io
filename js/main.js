@@ -16,6 +16,13 @@ document.addEventListener('DOMContentLoaded', function() {
     const lightboxPrev = document.getElementById('lightbox-prev');
     const lightboxNext = document.getElementById('lightbox-next');
 
+    // --- NEW: Mobile Project Slideshow Elements ---
+    const prevProjectBtn = document.getElementById('prev-project-btn');
+    const nextProjectBtn = document.getElementById('next-project-btn');
+    const projectCounter = document.getElementById('project-counter');
+    let currentProjectIndex = 0;
+    let visibleProjects = [];
+
     let currentLightboxProjectImages = [];
     let currentLightboxIndex = 0;
 
@@ -240,6 +247,33 @@ document.addEventListener('DOMContentLoaded', function() {
             modalsContainer.insertAdjacentHTML('beforeend', modalHtml);
         });
         initScrollAnimations();
+        updateFilteredProjects(); // Initial setup for slideshow
+    }
+
+    // --- NEW: Mobile Slideshow Logic ---
+    function updateFilteredProjects() {
+        const activeFilter = filterContainer.querySelector('.active').dataset.filter;
+        visibleProjects = Array.from(document.querySelectorAll('.project-card-wrapper')).filter(card => {
+            const isVisible = (activeFilter === 'all' || card.dataset.category === activeFilter);
+            card.style.display = isVisible ? 'block' : 'none'; // Also handles desktop filtering
+            return isVisible;
+        });
+        currentProjectIndex = 0;
+        updateSlideshowView();
+    }
+
+    function updateSlideshowView() {
+        if (window.innerWidth < 640) { // Only apply slideshow logic on mobile
+            projectGrid.style.transform = `translateX(-${currentProjectIndex * 100}%)`;
+        } else {
+            projectGrid.style.transform = 'none'; // Reset transform on desktop
+        }
+
+        if (projectCounter && visibleProjects.length > 0) {
+            projectCounter.textContent = `${currentProjectIndex + 1} / ${visibleProjects.length}`;
+        } else if (projectCounter) {
+            projectCounter.textContent = '0 / 0';
+        }
     }
 
     function setupProjectEventListeners() {
@@ -248,13 +282,30 @@ document.addEventListener('DOMContentLoaded', function() {
                 if (e.target.classList.contains('filter-btn')) {
                     filterContainer.querySelector('.active').classList.remove('active');
                     e.target.classList.add('active');
-                    const filter = e.target.dataset.filter;
-                    document.querySelectorAll('.project-card-wrapper').forEach(card => {
-                        card.style.display = (filter === 'all' || card.dataset.category === filter) ? 'block' : 'none';
-                    });
+                    updateFilteredProjects(); // Re-run filter and update slideshow
                 }
             });
         }
+        
+        // Mobile slideshow navigation
+        if (nextProjectBtn) {
+            nextProjectBtn.addEventListener('click', () => {
+                if (currentProjectIndex < visibleProjects.length - 1) {
+                    currentProjectIndex++;
+                    updateSlideshowView();
+                }
+            });
+        }
+        if (prevProjectBtn) {
+            prevProjectBtn.addEventListener('click', () => {
+                if (currentProjectIndex > 0) {
+                    currentProjectIndex--;
+                    updateSlideshowView();
+                }
+            });
+        }
+        
+        // General click handling for modals and lightbox
         document.body.addEventListener('click', (e) => {
             const card = e.target.closest('.project-card');
             if (card) openModal(document.getElementById(card.dataset.modalTarget));
