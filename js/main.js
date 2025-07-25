@@ -13,6 +13,11 @@ document.addEventListener('DOMContentLoaded', function() {
     const lightbox = document.getElementById('lightbox');
     const lightboxImg = document.getElementById('lightbox-img');
     const lightboxClose = document.getElementById('lightbox-close');
+    const lightboxPrev = document.getElementById('lightbox-prev');
+    const lightboxNext = document.getElementById('lightbox-next');
+
+    let currentLightboxProjectImages = [];
+    let currentLightboxIndex = 0;
 
     // --- Custom Cursor Logic ---
     if (cursorDot && cursorOutline) {
@@ -126,17 +131,44 @@ document.addEventListener('DOMContentLoaded', function() {
                 closeLightbox();
             }
         });
+        lightboxNext.addEventListener('click', () => showNextLightboxImage());
+        lightboxPrev.addEventListener('click', () => showPrevLightboxImage());
+        document.addEventListener('keydown', (e) => {
+            if (lightbox.classList.contains('visible')) {
+                if (e.key === 'ArrowRight') showNextLightboxImage();
+                if (e.key === 'ArrowLeft') showPrevLightboxImage();
+                if (e.key === 'Escape') closeLightbox();
+            }
+        });
     }
 
-    function openLightbox(imgSrc) {
+    function openLightbox(project, startIndex) {
         if (!lightbox || !lightboxImg) return;
-        lightboxImg.setAttribute('src', imgSrc);
-        lightbox.classList.add('visible');
+        currentLightboxProjectImages = project.slideshow_images;
+        currentLightboxIndex = startIndex;
+        updateLightboxImage();
+        lightbox.classList.remove('opacity-0', 'invisible');
+        lightbox.classList.add('opacity-100', 'visible');
     }
 
     function closeLightbox() {
         if (!lightbox) return;
-        lightbox.classList.remove('visible');
+        lightbox.classList.remove('opacity-100', 'visible');
+        lightbox.classList.add('opacity-0', 'invisible');
+    }
+
+    function updateLightboxImage() {
+        lightboxImg.setAttribute('src', currentLightboxProjectImages[currentLightboxIndex]);
+    }
+
+    function showNextLightboxImage() {
+        currentLightboxIndex = (currentLightboxIndex + 1) % currentLightboxProjectImages.length;
+        updateLightboxImage();
+    }
+
+    function showPrevLightboxImage() {
+        currentLightboxIndex = (currentLightboxIndex - 1 + currentLightboxProjectImages.length) % currentLightboxProjectImages.length;
+        updateLightboxImage();
     }
 
     // --- Project Display and Event Handling ---
@@ -172,10 +204,10 @@ document.addEventListener('DOMContentLoaded', function() {
                         </div>
                         <div class="flex-grow p-4 md:p-8 overflow-y-auto grid md:grid-cols-2 gap-6 md:gap-8">
                             <div class="slideshow-container relative w-full h-64 md:h-full group">
-                                ${project.slideshow_images.map((img, index) => `<div class="slide ${index !== 0 ? 'hidden' : ''}"><img src="${img}" class="slide-image rounded-lg w-full h-full object-cover cursor-pointer"></div>`).join('')}
+                                ${project.slideshow_images.map((img, index) => `<div class="slide ${index !== 0 ? 'hidden' : ''}" data-index="${index}"><img src="${img}" class="slide-image rounded-lg w-full h-full object-cover cursor-pointer"></div>`).join('')}
                                 <div class="expand-text">Click to expand image</div>
-                                <button class="prev-slide absolute top-1/2 left-2 -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 rounded-full leading-none cta-link">&lt;</button>
-                                <button class="next-slide absolute top-1/2 right-2 -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 rounded-full leading-none cta-link">&gt;</button>
+                                <button class="prev-slide absolute top-1/2 left-4 -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 rounded-full leading-none cta-link">&lt;</button>
+                                <button class="next-slide absolute top-1/2 right-4 -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 rounded-full leading-none cta-link">&gt;</button>
                             </div>
                             <div>
                                 <h3 class="text-2xl md:text-4xl font-bold mb-4 section-title">${project.title}</h3>
@@ -221,7 +253,12 @@ document.addEventListener('DOMContentLoaded', function() {
             }
 
             if (e.target.classList.contains('slide-image')) {
-                openLightbox(e.target.src);
+                const modalId = e.target.closest('.project-detail-modal').id;
+                const project = projectsData.find(p => p.id === modalId);
+                const slideIndex = parseInt(e.target.closest('.slide').dataset.index);
+                if (project) {
+                    openLightbox(project, slideIndex);
+                }
             }
         });
     }
@@ -267,6 +304,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     if (typeof projectsData !== 'undefined') {
+        projectsData.sort((a, b) => (a.order || 999) - (b.order || 999));
         displayProjects(projectsData);
         setupProjectEventListeners();
     } else {

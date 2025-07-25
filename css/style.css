@@ -104,11 +104,14 @@ body.cursor-hovered #cursor-outline {
 
 /* Slideshow navigation button transitions */
 .prev-slide, .next-slide {
-    transition: background-color 0.2s ease;
+    transition: background-color 0.2s ease, opacity 0.3s ease;
+    opacity: 0;
 }
-.prev-slide:hover, .next-slide:hover {
-    background-color: rgba(0, 0, 0, 0.8);
+.slideshow-container:hover .prev-slide,
+.slideshow-container:hover .next-slide {
+    opacity: 1;
 }
+
 
 /* Services Section */
 .service-card {
@@ -172,6 +175,13 @@ body.cursor-hovered #cursor-outline {
 #lightbox.visible #lightbox-img {
     transform: scale(1);
 }
+#lightbox-prev, #lightbox-next {
+    transition: background-color 0.2s ease;
+}
+#lightbox-prev:hover, #lightbox-next:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
 
 /* Slideshow Expand Text */
 .slideshow-container .expand-text {

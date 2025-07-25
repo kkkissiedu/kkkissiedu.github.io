@@ -2,14 +2,19 @@
 const projectsData = [
   {
     "id": "modal-1",
+    "order": 1,
     "category": "engineering",
-    "title": "Seismic Bridge Analysis",
-    "short_description": "Finite element analysis of a cable-stayed bridge under seismic loads.",
-    "cover_image": "images/projects/Structural/wd_main.jpg", // Local path
+    "title": "WD Studio Apartment",
+    "short_description": "WD Studio Apartment",
+    "cover_image": "images/projects/Structural/wd_main.webp", // Local path
     "slideshow_images": [
-      "images/projects/Structural/WD 1.jpg", // Local path
-      "images/projects/Structural/WD 2.jpg", // Local path
-      "images/projects/Structural/WD 3.jpg"  // Local path
+      "images/projects/Structural/wd_main.webp", // Local path
+      "images/projects/Structural/wd_1.webp", // Local path
+      "images/projects/Structural/wd_2.webp", // Local path
+      "images/projects/Structural/wd_3.webp", // Local path
+      "images/projects/Structural/wd_4.webp", // Local path
+      "images/projects/Structural/wd_5.webp", // Local path
+      "images/projects/Structural/wd_6.webp", // Local path
     ],
     "case_study": {
       "problem": "4 - storey Studio Apartment located in Kwamo-Kumasi. Designed for Mr. Hayford Boateng.",
@@ -18,38 +23,232 @@ const projectsData = [
     },
     "technologies": [
       "Finite Element Analysis (FEA)",
-      "SAP2000 / ETABS",
-      "Non-Linear Time-History Analysis",
-      "Python for data post-processing",
-      "Revit for detailing"
+      "ProtaStructure",
+      "Autodesk Revit",
+      "Autodesk AutoCAD",
+      "Lumion"
     ]
   },
   {
     "id": "modal-2",
-    "category": "ML",
-    "title": "Concrete Crack Segmentation",
-    "short_description": "A CNN model to detect and segment cracks in concrete surfaces from images.",
-    "cover_image": "images/projects/ML/ccseg_main.jpg", // Local path
+    "order": 2,
+    "category": "engineering",
+    "title": "Pineapple Hill Residential",
+    "short_description": "Pineapple Hill Residential",
+    "cover_image": "images/projects/Structural/ph_main.webp", // Local path
     "slideshow_images": [
-      "images/projects/ML/ccseg_1.png", // Local path
+      "images/projects/Structural/ph_main.webp", // Local path
+      "images/projects/Structural/ph_1.webp", // Local path
+      "images/projects/Structural/ph_2.webp", // Local path
+      "images/projects/Structural/ph_3.webp", // Local path
+      
+    ],
+    "case_study": {
+      "problem": "Multi - level residential building for Mr. Paul Anson Sherwood Saul",
+      "process": "Performed structural analysis and design to determine the dimensions of column bases, columns, retaining walls and staircases. Performed structural detailing of structural members using Revit.",
+      "outcome": "The final design ensured the building's stability and safety under seismic loads, meeting all local building codes and standards. The project was completed on time and within budget, providing a robust solution for the client."
+    },
+    "technologies": [
+      "Finite Element Analysis (FEA)",
+      "ProtaStructure",
+      "Autodesk Revit",
+      "Autodesk AutoCAD",
+      "Lumion"
+    ]
+  },
+  {
+    "id": "modal-3",
+    "order": 3,
+    "category": "engineering",
+    "title": "Spectra Medical Center",
+    "short_description": "Spectra Medical Center",
+    "cover_image": "images/projects/Structural/spectra.webp", // Local path
+    "slideshow_images": [
+      "images/projects/Structural/spectra.webp", // Local path
+      "images/projects/Structural/spectra_1.webp", // Local path
+      "images/projects/Structural/spectra_2.webp", // Local path
+      "images/projects/Structural/spectra_3.webp", // Local path
+      "images/projects/Structural/spectra_4.webp", // Local path
+      
+    ],
+    "case_study": {
+      "problem": "7 - storey Hospital Building for Spectra Health Imaging Limited - Accra.",
+      "process": "Performed structural analysis and design and structural detailing of raft foundations and flat slabs using Revit.",
+      "outcome": "The final design ensured the building's stability and safety under seismic loads, meeting all local building codes and standards. The project was completed on time and within budget, providing a robust solution for the client."
+    },
+    "technologies": [
+      "Finite Element Analysis (FEA)",
+      "ProtaStructure",
+      "Autodesk Revit",
+      "Autodesk AutoCAD",
+      "Lumion"
+    ]
+  },
+  {
+    "id": "modal-4",
+    "order": 4,
+    "category": "engineering",
+    "title": "Zenkawa Hospital",
+    "short_description": "Zenkawa Hospital",
+    "cover_image": "images/projects/Structural/zenkawa_main.webp", // Local path
+    "slideshow_images": [
+      "images/projects/Structural/zenkawa_main.webp", // Local path
+      "images/projects/Structural/zenkawa.webp", // Local path
+      "images/projects/Structural/zenkawa_1.webp", // Local path
+      "images/projects/Structural/zenkawa_2.webp", // Local path
+      
+    ],
+    "case_study": {
+      "problem": "7 - storey Hospital Building for Yarok Ephect, Zenkawa Hospitals Adenta - Accra.",
+      "process": "Performed structural analysis and design and structural detailing of raft foundation, Retaining Walls, Columns and Staircase using Revit.",
+      "outcome": "The final design ensured the building's stability and safety under seismic loads, meeting all local building codes and standards. The project was completed on time and within budget, providing a robust solution for the client."
+    },
+    "technologies": [
+      "Finite Element Analysis (FEA)",
+      "ProtaStructure",
+      "Autodesk Revit",
+      "Autodesk AutoCAD",
+      "Lumion"
+    ]
+  },
+  {
+    "id": "modal-5",
+    "order": 5,
+    "category": "ml-research",
+    "title": "Concrete Crack Segmentation",
+    "short_description": "A CNN model for semantic segmentation of cracks in concrete surfaces from images.",
+    "cover_image": "images/projects/ML/ccseg_main.webp", // Local path
+    "slideshow_images": [
+      "images/projects/ML/ccseg_main.webp", // Local path
+      "images/projects/ML/ccseg_1.webp", // Local path
       "images/projects/ML/ccseg_2.jpg", // Local path
       "images/projects/ML/ccseg_3.jpg"  // Local path
     ],
     "case_study": {
         "problem": "Manual inspection of concrete infrastructure for cracks is time-consuming, expensive, and prone to human error. There was a need for an automated system to improve the speed and accuracy of structural health monitoring.",
-        "process": "A Convolutional Neural Network (CNN) was designed and trained using TensorFlow and Keras on a large dataset of concrete surface images. The process involved data augmentation to improve model robustness, followed by training and validation to fine-tune the network's architecture for optimal performance.",
-        "outcome": "The final model achieved 95% accuracy in detecting and classifying cracks from drone imagery. This automated system reduces inspection time by over 70% and enables proactive maintenance, significantly enhancing the safety and longevity of civil infrastructure."
+        "process": "A Convolutional Neural Network (CNN) was designed and trained using PyTorch on a large dataset of concrete surface images. It was built on a U-Net architecture with attention mechanisms. Class weighting was incorporated to handle class imbalance, and data augmentation techniques were applied to enhance model robustness.",
+        "outcome": "A semantic segmentation model that is able to detect and outline cracks in concrete images. The final model achieved a Dice Score of 0.93 on the test set. This automated system reduces inspection time by over 70% and enables proactive maintenance, significantly enhancing the safety and longevity of civil infrastructure."
     },
     "technologies": [
       "Python & Jupyter Notebooks",
-      "TensorFlow & Keras",
-      "OpenCV for Image Processing",
+      "PyTorch",
       "Convolutional Neural Networks (CNN)",
-      "Data Augmentation Techniques"
+      "OpenCV for Image Processing",
+      "Albumentations for Data Augmentation",
+      "scikit-learn and Dice Score for Evaluation"
     ]
   },
   {
-    "id": "modal-3",
+    "id": "modal-6",
+    "order": 6,
+    "category": "ml-research",
+    "title": "Concrete Strength Prediction",
+    "short_description": "A Random Forest Regressor Model for estimating the Compressive Strength of Concrete",
+    "cover_image": "images/projects/ML/csp_main.webp", // Local path
+    "slideshow_images": [
+      "images/projects/ML/csp_main.webp", // Local path
+      "images/projects/ML/csp3.png", // Local path
+      "images/projects/ML/csp1.png", // Local path
+      "images/projects/ML/csp2.png"  // Local path
+    ],
+    "case_study": {
+        "problem": "This project applies machine learning to a core civil engineering challenge: predicting the compressive strength of concrete. It provides a faster, data-driven method.",
+        "process": "Linear Regression, Decision Tree and Random Forest Regressor models were trained using a concrete strength dataset. The model with the highest r-squared error was selected. Hyperparameter tuning was performed using KFold and GridSearch. After visualizing feature importances, the low-impact freatures were removed, after which the model was updated.",
+        "outcome": "The final model achieved a Root Mean Squared Error of 5.8MPa on the test set."
+    },
+    "technologies": [
+      "Python & Jupyter Notebooks",
+      "Scikit-learn",
+      "RandomForestRegressor",
+      "Matplotlib",
+      "Seaborn",
+      "GridSearchCV"
+    ]
+  },
+  {
+    "id": "modal-7",
+    "order": 7,
+    "category": "ml-research",
+    "title": "Concrete Site Safety Detector (Ongoing)",
+    "short_description": "AI-powered system for real-time monitoring of Personal Protective Equipment (PPE) compliance on construction sites.",
+    "cover_image": "images/projects/ML/css_main.webp", // Local path
+    "slideshow_images": [
+      "images/projects/ML/css_main.webp", // Local path
+      "images/projects/ML/css1.webp", // Local path
+      "images/projects/ML/css2.webp", // Local path
+
+    ],
+    "case_study": {
+        "problem": "Construction sites are hazardous environments where failure to comply with PPE regulations significantly increases the risk of accidents. Manual enforcement is time-consuming, inconsistent, and prone to human error.",
+        "process": "A deep learning-based computer vision model based on YOLOv8 was trained on annotated images to detect workers and identify whether they are wearing required PPE such as helmets, vests, and boots. The system uses object detection algorithms integrated into a real-time monitoring pipeline.",
+        "outcome": "The model successfully detects PPE compliance in real-time video streams with minimal latency. This model serves as a foundation for a more advanced system incorporating dense captioning to provide contextual risk assessment, moving from simple detection to intelligent scene understanding."
+    },
+    "technologies": [
+      "Python & Jupyter Notebooks",
+      "PyTorch",
+      "OpenCV",
+      "YOLOv8",
+      "CVZone",
+    ]
+  },
+  {
+    "id": "modal-8",
+    "order": 8,
+    "category": "ml-research",
+    "title": "Earthquake Response Spectrum Estimator",
+    "short_description": "Python script for quickly generating response spectra for earthquake engineering.",
+    "cover_image": "images/projects/ML/ers_main.webp", // Local path
+    "slideshow_images": [
+      "images/projects/ML/ers_main.webp", // Local path
+      "images/projects/ML/ers1.png", // Local path
+    ],
+    "case_study": {
+        "problem": "Engineering professionals and researchers often need to compute earthquake response spectra from ground motion records to assess structural seismic demands.",
+        "process": "The script uses Pandas for data handling, NumPy for numerical computations, and Matplotlib for plotting. It reads earthquake ground motion data, computes the response spectrum using a Single-Degree-of-Freedom (SDOF) system model based on the Central Difference Method, and visualizes the results.",
+        "outcome": "The script determines the dynamic response of a Single-Degree-of-Freedom (SDOF) system subjected to earthquake ground motion. The classic 1940 El Centro earthquake ground motion was used as a case study for the script. The script generates the response spectrum, which is a crucial tool for earthquake engineering analysis."
+    },
+    "technologies": [
+      "Python & Jupyter Notebooks",
+      "Central Difference Method",
+      "Numpy",
+      "Pandas",
+      "Matplotlib",
+    ]
+  },
+  {
+    "id": "modal-9",
+    "order": 9,
+    "category": "ml-research",
+    "title": "Assessing the Fatigue Life of Locally Manufactured Rebars produced from Scrap Metal (Ongoing)",
+    "short_description": "Laboratory testing and Numerical simulation of Fatigue Life of Locally Manufactured Rebars ",
+    "cover_image": "images/projects/ML/FLR_main.webp", // Local path
+    "slideshow_images": [
+      "images/projects/ML/FLR_main.webp", // Local path
+      "images/projects/ML/FLR.webp", // Local path
+      "images/projects/ML/FLR_1.webp", // Local path
+      "images/projects/ML/FLR_2.webp", // Local path
+    ],
+    "case_study": {
+        "problem": "Though the majority of rebars used in construction of residential and commercial buildings in Ghana are locally-sourced, there is a lack of extensive research into the fatigue life of these rebars under low-cycle, high intensity loading.",
+        "process": "Laboratory testing of the mechanical properties of locally manufactured rebars sourced from a number of local manufacturers. Experimental results are used in generating numerical models in ABAQUS for simulation of the fatigue life of the rebars under several conditions including change in bar diameter, tensile strength and rib geometry. The results will be used in building a Neural Network model for estimating Fatigue Life of any given type of locally manufactured rebar.",
+        "outcome": "Comprehensive database on the Fatigue Life of locally manufactured rebars. Research outcome will assess the suitability of the rebars for sustainable construction. The Neural Network model will make further studies on the topic easier and less expensive."
+    },
+    "technologies": [
+      "Laboratory Tests",
+      "ABAQUS",
+      "Concrete Damage Plasticity",
+      "Python & Jupyter Notebooks",
+      "Numpy",
+      "Pandas",
+      "Matplotlib",
+      "Convolutional Neural Networks (CNN)",
+      "OpenCV for Image Processing",
+      "Albumentations for Data Augmentation",
+    ]
+  },
+  {
+    "id": "modal-10",
+    "order": 10,
     "category": "design",
     "title": "Parametric Facade Design",
     "short_description": "Generative design of a high-rise building facade for optimal solar shading.",

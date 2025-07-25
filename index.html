@@ -144,10 +144,8 @@
 
     <footer class="py-8"><div class="container mx-auto px-4 sm:px-6 text-center text-gray-500"><p class="text-sm">&copy; 2024 Kwabena Kissiedu. All Rights Reserved.</p></div></footer>
     
-    <!-- Modals Container -->
     <div id="modals-container"></div>
 
-    <!-- CV Download Modal -->
     <div id="cv-modal" class="modal fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center p-4 opacity-0 invisible z-[101]">
         <div class="modal-content bg-[#181818] rounded-lg max-w-sm w-full p-8 relative transform scale-95 text-center">
             <button class="modal-close absolute top-4 right-4 text-gray-400 hover:text-white text-3xl font-light cta-link">&times;</button>
@@ -159,10 +157,11 @@
         </div>
     </div>
 
-    <!-- Fullscreen Image Lightbox -->
     <div id="lightbox" class="fixed inset-0 bg-black bg-opacity-90 flex items-center justify-center p-4 opacity-0 invisible z-[102]">
         <img id="lightbox-img" src="" alt="Expanded project image" class="max-w-full max-h-full object-contain">
         <button id="lightbox-close" class="absolute top-6 right-8 text-white text-5xl font-light cta-link">&times;</button>
+        <button id="lightbox-prev" class="absolute top-1/2 left-4 -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 rounded-full leading-none text-3xl cta-link">&lt;</button>
+        <button id="lightbox-next" class="absolute top-1/2 right-4 -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 rounded-full leading-none text-3xl cta-link">&gt;</button>
     </div>
 
     <script src="js/projects-data.js"></script>
