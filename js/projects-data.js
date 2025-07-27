@@ -197,10 +197,10 @@ const projectsData = [
     "category": "ml-research",
     "title": "Earthquake Response Spectrum Estimator",
     "short_description": "Python script for quickly generating response spectra for earthquake engineering.",
-    "cover_image": "images/projects/ML/ers_main.webp", // Local path
+    "cover_image": "images/projects/ML/ers_main.webp", 
     "slideshow_images": [
-      "images/projects/ML/ers_main.webp", // Local path
-      "images/projects/ML/ers1.png", // Local path
+      "images/projects/ML/ers_main.webp", 
+      "images/projects/ML/ers1.png", 
     ],
     "case_study": {
         "problem": "Engineering professionals and researchers often need to compute earthquake response spectra from ground motion records to assess structural seismic demands.",
@@ -221,12 +221,12 @@ const projectsData = [
     "category": "ml-research",
     "title": "Assessing the Fatigue Life of Locally Manufactured Rebars produced from Scrap Metal (Ongoing)",
     "short_description": "Laboratory testing and Numerical simulation of Fatigue Life of Locally Manufactured Rebars ",
-    "cover_image": "images/projects/ML/FLR_main.webp", // Local path
+    "cover_image": "images/projects/ML/FLR_main.webp", 
     "slideshow_images": [
-      "images/projects/ML/FLR_main.webp", // Local path
-      "images/projects/ML/FLR.webp", // Local path
-      "images/projects/ML/FLR_1.webp", // Local path
-      "images/projects/ML/FLR_2.webp", // Local path
+      "images/projects/ML/FLR_main.webp", 
+      "images/projects/ML/FLR.webp", 
+      "images/projects/ML/FLR_1.webp", 
+      "images/projects/ML/FLR_2.webp", 
     ],
     "case_study": {
         "problem": "Though the majority of rebars used in construction of residential and commercial buildings in Ghana are locally-sourced, there is a lack of extensive research into the fatigue life of these rebars under low-cycle, high intensity loading.",
