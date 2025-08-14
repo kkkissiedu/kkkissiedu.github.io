@@ -16,6 +16,15 @@ document.addEventListener('DOMContentLoaded', function() {
     const lightboxPrev = document.getElementById('lightbox-prev');
     const lightboxNext = document.getElementById('lightbox-next');
 
+    // --- Light/Dark Mode Elements ---
+    const themeToggleBtn = document.getElementById('theme-toggle');
+    const mobileThemeToggleBtn = document.getElementById('mobile-theme-toggle');
+    const sunIcon = document.getElementById('sun-icon');
+    const moonIcon = document.getElementById('moon-icon');
+    const mobileSunIcon = document.getElementById('mobile-sun-icon');
+    const mobileMoonIcon = document.getElementById('mobile-moon-icon');
+    const htmlEl = document.documentElement;
+
     let currentLightboxProjectImages = [];
     let currentLightboxIndex = 0;
 
@@ -44,7 +53,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // --- Mobile Menu ---
     if (mobileMenuBtn && mobileMenu) {
-        const navLinks = mobileMenu.querySelectorAll('a');
+        const navLinks = mobileMenu.querySelectorAll('a, button');
         mobileMenuBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
         navLinks.forEach(link => link.addEventListener('click', () => mobileMenu.classList.add('hidden')));
     }
@@ -181,13 +190,13 @@ document.addEventListener('DOMContentLoaded', function() {
         projects.forEach(project => {
             const cardHtml = `
                 <div class="project-card-wrapper animated-element" data-category="${project.category}">
-                    <div class="project-card bg-[#181818] rounded-lg overflow-hidden cursor-pointer" data-modal-target="${project.id}">
+                    <div class="project-card bg-tertiary rounded-lg overflow-hidden cursor-pointer" data-modal-target="${project.id}">
                         <div class="relative overflow-hidden h-56">
                             <img src="${project.cover_image}" alt="${project.title}" class="card-image w-full h-full object-cover">
                         </div>
                         <div class="p-6">
                             <h3 class="text-xl font-bold mb-2">${project.title}</h3>
-                            <p class="text-gray-400 mb-4 text-sm">${project.short_description}</p>
+                            <p class="text-desc mb-4 text-sm">${project.short_description}</p>
                             <span class="text-xs font-semibold capitalize ${categoryColors[project.category] || 'text-gray-400'}">${project.category.replace('-', ' ')}</span>
                         </div>
                     </div>
@@ -210,7 +219,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
             const modalHtml = `
                 <div id="${project.id}" class="project-detail-modal modal fixed inset-0 bg-black bg-opacity-90 p-4 sm:p-8 opacity-0 invisible z-[100] overflow-y-auto flex items-center justify-center">
-                    <div class="modal-content bg-[#101010] rounded-lg w-full max-w-6xl max-h-[95vh] flex flex-col transform scale-95 opacity-0">
+                    <div class="modal-content rounded-lg w-full max-w-6xl max-h-[95vh] flex flex-col transform scale-95 opacity-0">
                         <div class="flex-shrink-0 p-4 flex justify-between items-center border-b border-gray-800">
                              <h2 class="text-lg md:text-2xl font-bold">Project Details</h2>
                              <button class="modal-close text-gray-400 hover:text-white text-4xl font-light cta-link">&times;</button>
@@ -248,7 +257,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     filterContainer.querySelector('.active').classList.remove('active');
                     e.target.classList.add('active');
                     const filter = e.target.dataset.filter;
-                    document.querySelectorAll('.project-card-wrapper').forEach(card => {
+                    document.querySelectorAll('#project-grid .project-card-wrapper').forEach(card => {
                         card.style.display = (filter === 'all' || card.dataset.category === filter) ? 'block' : 'none';
                     });
                 }
@@ -315,13 +324,50 @@ document.addEventListener('DOMContentLoaded', function() {
         showSlide(0);
     }
 
+    // --- Light/Dark Mode Logic ---
+    function toggleTheme(theme) {
+        if (theme === 'dark') {
+            htmlEl.classList.add('dark');
+            localStorage.setItem('theme', 'dark');
+            sunIcon.classList.add('hidden');
+            moonIcon.classList.remove('hidden');
+            mobileSunIcon.classList.add('hidden');
+            mobileMoonIcon.classList.remove('hidden');
+        } else {
+            htmlEl.classList.remove('dark');
+            localStorage.setItem('theme', 'light');
+            sunIcon.classList.remove('hidden');
+            moonIcon.classList.add('hidden');
+            mobileSunIcon.classList.remove('hidden');
+            mobileMoonIcon.classList.add('hidden');
+        }
+    }
+
+    themeToggleBtn.addEventListener('click', () => {
+        const currentTheme = htmlEl.classList.contains('dark') ? 'light' : 'dark';
+        toggleTheme(currentTheme);
+    });
+
+    mobileThemeToggleBtn.addEventListener('click', () => {
+        const currentTheme = htmlEl.classList.contains('dark') ? 'light' : 'dark';
+        toggleTheme(currentTheme);
+    });
+
+    // --- Initial Load ---
     if (typeof projectsData !== 'undefined') {
         projectsData.sort((a, b) => (a.order || 999) - (b.order || 999));
         displayProjects(projectsData);
         setupProjectEventListeners();
-        // Call initScrollAnimations again after projects are displayed
-        initScrollAnimations(); 
+        initScrollAnimations();
     } else {
         console.error('Project data not found. Make sure projects-data.js is loaded correctly.');
+    }
+
+    // Set initial theme
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme) {
+        toggleTheme(savedTheme);
+    } else {
+        toggleTheme('light'); // Default to light mode
     }
 });
