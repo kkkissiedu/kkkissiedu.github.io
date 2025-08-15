@@ -15,6 +15,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const lightboxClose = document.getElementById('lightbox-close');
     const lightboxPrev = document.getElementById('lightbox-prev');
     const lightboxNext = document.getElementById('lightbox-next');
+    const backToTopBtn = document.getElementById('back-to-top');
 
     // --- Light/Dark Mode Elements ---
     const themeToggleBtn = document.getElementById('theme-toggle');
@@ -51,12 +52,27 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // --- Mobile Menu ---
+    // --- Animated Mobile Menu ---
     if (mobileMenuBtn && mobileMenu) {
+        mobileMenuBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            const isOpen = mobileMenu.classList.toggle('open');
+            if (isOpen) {
+                mobileMenu.classList.remove('hidden');
+            } else {
+                setTimeout(() => mobileMenu.classList.add('hidden'), 300);
+            }
+        });
+        document.addEventListener('click', (e) => {
+            if (mobileMenu.classList.contains('open') && !mobileMenu.contains(e.target) && !e.target.closest('#mobile-menu-btn')) {
+                 mobileMenu.classList.remove('open');
+                 setTimeout(() => mobileMenu.classList.add('hidden'), 300);
+            }
+        });
         const navLinks = mobileMenu.querySelectorAll('a, button');
-        mobileMenuBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
         navLinks.forEach(link => link.addEventListener('click', () => {
-            setTimeout(() => mobileMenu.classList.add('hidden'), 150);
+             mobileMenu.classList.remove('open');
+             setTimeout(() => mobileMenu.classList.add('hidden'), 300);
         }));
     }
 
@@ -109,7 +125,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // --- Scroll Animations ---
+    // --- Scroll Animations & Back to Top ---
     function initScrollAnimations() {
         const animatedElements = document.querySelectorAll('.animated-element:not(.visible)');
         const observer = new IntersectionObserver((entries) => {
@@ -121,6 +137,16 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         }, { threshold: 0.15 });
         animatedElements.forEach(el => observer.observe(el));
+    }
+
+    if (backToTopBtn) {
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 400) {
+                backToTopBtn.classList.add('visible');
+            } else {
+                backToTopBtn.classList.remove('visible');
+            }
+        });
     }
     
     // --- CV Modal Logic ---
@@ -215,6 +241,10 @@ document.addEventListener('DOMContentLoaded', function() {
                         </div>`;
             }).join('');
 
+            const githubButtonHtml = project.github_link
+                ? `<a href="${project.github_link}" target="_blank" rel="noopener noreferrer" class="github-button inline-flex items-center text-sm font-semibold py-2 px-4 rounded-lg transition-colors mt-4">View on GitHub</a>`
+                : '';
+
             const modalHtml = `
                 <div id="${project.id}" class="project-detail-modal modal fixed inset-0 bg-black bg-opacity-90 p-4 sm:p-8 opacity-0 invisible z-[100] overflow-y-auto flex items-center justify-center">
                     <div class="modal-content rounded-lg w-full max-w-6xl max-h-[95vh] flex flex-col transform scale-95 opacity-0">
@@ -231,6 +261,7 @@ document.addEventListener('DOMContentLoaded', function() {
                             <div>
                                 <h3 class="text-2xl md:text-4xl font-bold mb-4 section-title">${project.title}</h3>
                                 <span class="text-xs font-semibold capitalize ${modalCategoryColors[project.category] || 'text-gray-400 bg-gray-900'} bg-opacity-50 py-1 px-3 rounded-full">${project.category.replace('-', ' ')}</span>
+                                ${githubButtonHtml}
                                 <div class="my-6 space-y-6 text-sm md:text-base">
                                     ${caseStudyHtml}
                                 </div>
@@ -256,7 +287,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 <div class="project-card-wrapper animated-element" data-category="${project.category}">
                     <div class="project-card bg-tertiary rounded-lg overflow-hidden cursor-pointer" data-modal-target="${project.id}">
                         <div class="relative overflow-hidden h-56">
-                            <img src="${project.cover_image}" alt="${project.title}" class="card-image w-full h-full object-cover">
+                            <img src="${project.cover_image}" alt="${project.title}" class="card-image w-full h-full object-cover" loading="lazy">
                         </div>
                         <div class="p-6">
                             <h3 class="text-xl font-bold mb-2">${project.title}</h3>
@@ -277,9 +308,25 @@ document.addEventListener('DOMContentLoaded', function() {
                     filterContainer.querySelector('.active').classList.remove('active');
                     e.target.classList.add('active');
                     const filter = e.target.dataset.filter;
-                    document.querySelectorAll('#project-grid .project-card-wrapper').forEach(card => {
-                        card.style.display = (filter === 'all' || card.dataset.category === filter) ? 'block' : 'none';
+                    const cards = document.querySelectorAll('#project-grid .project-card-wrapper');
+                    
+                    cards.forEach(card => {
+                        card.classList.add('hidden-project');
                     });
+                    
+                    setTimeout(() => {
+                         cards.forEach(card => {
+                            const show = filter === 'all' || card.dataset.category === filter;
+                            if (show) {
+                                card.style.display = 'block';
+                                setTimeout(() => {
+                                    card.classList.remove('hidden-project');
+                                }, 20);
+                            } else {
+                                card.style.display = 'none';
+                            }
+                        });
+                    }, 400);
                 }
             });
         }

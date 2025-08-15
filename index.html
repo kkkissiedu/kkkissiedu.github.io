@@ -37,13 +37,13 @@
                 </button>
             </div>
         </div>
-        <div id="mobile-menu" class="hidden md:hidden bg-opacity-50">
-            <a href="#about" class="block py-3 px-6 hover:bg-gray-800 transition-colors">About</a>
-            <a href="#services" class="block py-3 px-6 hover:bg-gray-800 transition-colors">Services</a>
-            <a href="#projects" class="block py-3 px-6 hover:bg-gray-800 transition-colors">Projects</a>
-            <a href="#skills" class="block py-3 px-6 hover:bg-gray-800 transition-colors">Skills</a>
-            <a href="#youtube" class="block py-3 px-6 hover:bg-gray-800 transition-colors">YouTube</a>
-            <a href="#contact" class="block py-3 px-6 hover:bg-gray-800 transition-colors">Contact</a>
+        <div id="mobile-menu" class="fixed top-0 right-0 h-full w-64 bg-secondary shadow-lg md:hidden">
+            <a href="#about" class="block py-3 px-6 hover:bg-tertiary transition-colors">About</a>
+            <a href="#services" class="block py-3 px-6 hover:bg-tertiary transition-colors">Services</a>
+            <a href="#projects" class="block py-3 px-6 hover:bg-tertiary transition-colors">Projects</a>
+            <a href="#skills" class="block py-3 px-6 hover:bg-tertiary transition-colors">Skills</a>
+            <a href="#youtube" class="block py-3 px-6 hover:bg-tertiary transition-colors">YouTube</a>
+            <a href="#contact" class="block py-3 px-6 hover:bg-tertiary transition-colors">Contact</a>
             <div class="py-3 px-6 border-t border-gray-700">
                 <button id="mobile-theme-toggle" class="transition-colors focus:outline-none cta-link w-full flex items-center">
                     <span class="mr-2">Toggle Theme</span>
@@ -58,7 +58,7 @@
         <canvas id="hero-canvas"></canvas>
         <div class="hero-content px-4 sm:px-6">
             <h1 class="text-4xl sm:text-5xl md:text-7xl font-bold leading-tight mb-4">Engineering the Future with <br> <span class="section-title">Data & Design</span></h1>
-            <p class="text-lg md:text-xl max-w-3xl mx-auto mb-8">Innovating at the intersection of structural engineering, machine learning, and 3D design to build smarter, more resilient infrastructure.</p>
+            <p class="text-lg md:text-xl max-w-3xl mx-auto mb-8">A First Class Honors Civil Engineer developing AI-driven tools for safer, more sustainable infrastructure through a complete workflow from 3D synthetic data generation to physics-informed modeling.</p>
             <a href="#projects" class="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-8 rounded-full text-lg transition-transform transform hover:scale-105 cta-link">View My Work</a>
         </div>
     </section>
@@ -69,8 +69,8 @@
                 <div class="md:col-span-1 animated-element"><img src="images/kk.jpg" onerror="this.onerror=null;this.src='https://placehold.co/600x800/101010/e0e0e0?text=Alex+Doe';" alt="Kwabena Kissiedu" class="rounded-lg shadow-2xl w-full max-w-sm mx-auto h-auto object-cover"></div>
                 <div class="md:col-span-2 animated-element">
                     <h2 class="text-3xl md:text-4xl font-bold mb-4">About Me</h2>
-                    <p class="mb-6 text-base md:text-lg">I am a passionate engineer and innovator with a unique blend of expertise in structural analysis, predictive modeling, and computational design. My goal is to leverage cutting-edge technology to solve complex engineering challenges and contribute to the development of next-generation infrastructure.</p>
-                    <p class="mb-8 text-base md:text-lg">With a strong foundation in civil engineering principles and advanced skills in Python, PyTorch, Blender, and BIM SOftware, I thrive on transforming complex data into actionable insights and elegant design solutions.</p>
+                    <p class="mb-6 text-base md:text-lg">I am a research-focused Civil Engineer passionate about applying cutting-edge AI to solve real-world infrastructure challenges in Ghana. My work integrates Physics-Informed AI, computational mechanics, and design automation into a complete workflow: I create 3D digital worlds, use them to generate synthetic data, and then train the physics-informed models needed for analysis.</p>
+                    <p class="mb-8 text-base md:text-lg">This passion led me to co-found The Anthracite Ltd., a startup with the mission to develop Ghana's first 3D-printed Green Building estate. My ultimate goal is to pioneer a new paradigm where structures are built with and managed by intelligent digital twins throughout their entire lifespan.</p>
                     <div class="flex flex-wrap gap-4">
                         <button id="cv-modal-btn" class="w-full sm:w-auto text-center cv-button font-semibold py-3 px-6 rounded-lg transition-colors cta-link">Download CV</button>
                         <a href="files/Portfolio - Kwabena Kissiedu - structural.pdf" download class="w-full sm:w-auto text-center cv-button font-semibold py-3 px-6 rounded-lg transition-colors cta-link">Download Portfolio</a>
@@ -85,12 +85,20 @@
         <div class="container mx-auto px-4 sm:px-6">
             <div class="text-center mb-12 animated-element">
                 <h2 class="text-3xl md:text-4xl font-bold mb-4">What I Do</h2>
-                <p class="max-w-2xl mx-auto text-base md:text-lg">I offer a range of specialized services across my core disciplines.</p>
             </div>
             <div class="grid md:grid-cols-3 gap-8">
-                <div class="service-card animated-element"><h3 class="text-2xl font-bold mb-4 text-indigo-400">Structural Engineering</h3><ul class="space-y-2"><li>Finite Element Analysis (FEA)</li><li>Seismic Retrofitting & Analysis</li><li>Building Information Modeling (BIM)</li><li>Code Compliance & Permitting</li></ul></div>
-                <div class="service-card animated-element"><h3 class="text-2xl font-bold mb-4 text-pink-400">ML & Research</h3><ul class="space-y-2"><li>Predictive Modeling</li><li>Computer Vision Systems</li><li>Structural Health Monitoring AI</li><li>Data-Driven Optimization</li></ul></div>
-                <div class="service-card animated-element"><h3 class="text-2xl font-bold mb-4 text-teal-400">3D Design & Visualization</h3><ul class="space-y-2"><li>Parametric & Generative Design</li><li>Architectural Visualization</li><li>3D Modeling & Rendering</li><li>Virtual Reality Experiences</li></ul></div>
+                <div class="service-card animated-element">
+                    <h3 class="text-2xl font-bold mb-4 text-indigo-400">Structural Engineering</h3>
+                    <p class="text-desc mb-4">Applying modern computational tools to traditional structural analysis, including physics-based numerical modeling in ABAQUS and advanced BIM workflows in Autodesk Revit.</p>
+                </div>
+                <div class="service-card animated-element">
+                    <h3 class="text-2xl font-bold mb-4 text-pink-400">ML & Research</h3>
+                    <p class="text-desc mb-4">Developing custom computer vision models (U-Net, YOLOv8) for SHM and site safety, and building Physics-Informed Neural Networks (PINNs) for predictive analysis.</p>
+                </div>
+                <div class="service-card animated-element">
+                    <h3 class="text-2xl font-bold mb-4 text-teal-400">3D Design & Visualization</h3>
+                    <p class="text-desc mb-4">Creating high-fidelity 3D assets and immersive digital environments using Blender, ZBrush, and Unreal Engine for synthetic data generation and virtual reality experiences.</p>
+                </div>
             </div>
         </div>
     </section>
@@ -216,7 +224,28 @@
         </div>
     </section>
 
-    <section id="contact" class="py-20 md:py-32 bg-primary">
+    <section id="testimonials" class="py-20 md:py-32 bg-primary">
+        <div class="container mx-auto px-4 sm:px-6">
+            <div class="text-center mb-12 animated-element">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Testimonials</h2>
+                <p class="max-w-2xl mx-auto text-base md:text-lg">What colleagues and clients say about my work.</p>
+            </div>
+            <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                <div class="testimonial-card animated-element">
+                    <p class="text-lg italic mb-4">"Kwabena's ability to merge deep engineering principles with modern AI is remarkable. His work on our project was pivotal."</p>
+                    <p class="font-bold">- Dr. Evans Amponsah</p>
+                    <p class="text-sm">Research Supervisor, KNUST</p>
+                </div>
+                <div class="testimonial-card animated-element">
+                    <p class="text-lg italic mb-4">"The 3D visualizations Kwabena produced were beyond our expectations. He is professional, creative, and delivers exceptional quality."</p>
+                    <p class="font-bold">- Client Name</p>
+                    <p class="text-sm">Company / Role</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="py-20 md:py-32 bg-secondary">
         <div class="container mx-auto px-4 sm:px-6">
             <div class="text-center mb-12 animated-element"><h2 class="text-3xl md:text-4xl font-bold mb-4">Let's Connect</h2><p class="max-w-2xl mx-auto text-base md:text-lg">Have a project in mind or just want to say hi? Feel free to reach out.</p></div>
             <div class="max-w-3xl mx-auto animated-element">
@@ -232,7 +261,16 @@
         </div>
     </section>
 
-    <footer class="py-8"><div class="container mx-auto px-4 sm:px-6 text-center"><p class="text-sm">&copy; 2025 Kwabena Kissiedu. All Rights Reserved.</p></div></footer>
+    <footer class="py-8 bg-primary">
+        <div class="container mx-auto px-4 sm:px-6 text-center">
+            <div class="flex justify-center space-x-6 mb-4">
+                <a href="https://github.com/kkkissiedu" target="_blank" rel="noopener noreferrer" class="social-link">
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M12 2C6.477 2 2 6.477 2 12c0 4.418 2.865 8.165 6.839 9.49.5.092.682-.217.682-.482 0-.237-.009-.868-.014-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.031-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.203 2.398.1 2.651.64.7 1.03 1.595 1.03 2.688 0 3.848-2.338 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.001 10.001 0 0022 12c0-5.523-4.477-10-10-10z" clip-rule="evenodd" /></svg>
+                </a>
+                </div>
+            <p class="text-sm">&copy; 2025 Kwabena Kissiedu. All Rights Reserved.</p>
+        </div>
+    </footer>
     
     <div id="modals-container"></div>
 
@@ -241,7 +279,7 @@
             <button class="modal-close absolute top-4 right-4 hover:text-white text-3xl font-light cta-link">&times;</button>
             <h2 class="text-2xl font-bold mb-6">Download CV</h2>
             <div class="flex flex-col space-y-4">
-                <a href="files/CV - Kwabena Kissiedu - Academic.pdf" download class="w-full text-center bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-3 px-6 rounded-lg transition-colors cta-link">Academic CV</a>
+                <a href="files/CV - Kwabena Kissiedu.pdf" download class="w-full text-center bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-3 px-6 rounded-lg transition-colors cta-link">Academic CV</a>
                 <a href="files/professional-cv.pdf" download class="w-full text-center cv-button font-semibold py-3 px-6 rounded-lg transition-colors cta-link">Professional CV</a>
             </div>
         </div>
@@ -253,6 +291,10 @@
         <button id="lightbox-prev" class="absolute top-1/2 left-4 -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 rounded-full leading-none text-3xl cta-link">&lt;</button>
         <button id="lightbox-next" class="absolute top-1/2 right-4 -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 rounded-full leading-none text-3xl cta-link">&gt;</button>
     </div>
+
+    <a href="#" id="back-to-top" class="fixed bottom-8 right-8 bg-indigo-600 text-white w-12 h-12 rounded-full flex items-center justify-center shadow-lg transition-opacity opacity-0 cta-link">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7"></path></svg>
+    </a>
 
     <script src="js/projects-data.js"></script>
     <script src="js/main.js"></script>

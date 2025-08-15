@@ -115,6 +115,7 @@ const projectsData = [
     "title": "Concrete Crack Segmentation Model",
     "short_description": "A CNN model for semantic segmentation of cracks in concrete surfaces from images.",
     "cover_image": "images/projects/ML/ccseg_main.webp",
+    "github_link": "https://github.com/kkkissiedu/Concrete-Crack-Segmentation",
     "slideshow_images": [
       "images/projects/ML/ccseg_main.webp",
       "images/projects/ML/ccseg_1.webp",
@@ -142,6 +143,7 @@ const projectsData = [
     "title": "Concrete Strength Prediction",
     "short_description": "A Random Forest Regressor Model for estimating the Compressive Strength of Concrete",
     "cover_image": "images/projects/ML/csp_main.webp",
+    "github_link": "https://github.com/kkkissiedu/Concrete-Strength-Prediction-Model",
     "slideshow_images": [
       "images/projects/ML/csp_main.webp",
       "images/projects/ML/csp3.png",
@@ -166,9 +168,10 @@ const projectsData = [
     "id": "modal-7",
     "order": 7,
     "category": "ml-research",
-    "title": "Concrete Site Safety Detector (Ongoing)",
+    "title": "Concrete Site Safety Detector",
     "short_description": "AI-powered system for real-time monitoring of Personal Protective Equipment (PPE) compliance on construction sites.",
     "cover_image": "images/projects/ML/css_main.webp",
+    "github_link": "https://github.com/kkkissiedu/Concrete-Site-Safety-Detector",
     "slideshow_images": [
       "images/projects/ML/css_main.webp",
       "images/projects/ML/css1.webp",
@@ -195,6 +198,7 @@ const projectsData = [
     "title": "Earthquake Response Spectrum Estimator",
     "short_description": "Python script for quickly generating response spectra for earthquake engineering.",
     "cover_image": "images/projects/ML/ers_main.webp", 
+    "github_link": "https://github.com/kkkissiedu/Earthquake-Response-Spectrum",
     "slideshow_images": [
       "images/projects/ML/ers_main.webp", 
       "images/projects/ML/ers1.png", 
@@ -216,7 +220,7 @@ const projectsData = [
     "id": "modal-9",
     "order": 4,
     "category": "ml-research",
-    "title": "Assessing the Fatigue Life of Locally Manufactured Rebars produced from Scrap Metal (Ongoing)",
+    "title": "Fatigue Life of Locally Manufactured Rebars",
     "short_description": "Laboratory testing and Numerical simulation of Fatigue Life of Locally Manufactured Rebars ",
     "cover_image": "images/projects/ML/FLR_main.webp", 
     "slideshow_images": [
@@ -250,19 +254,19 @@ const projectsData = [
     "title": "Traffic Car Counter",
     "short_description": "Realtime Car Counter based on YOLOv8",
     "cover_image": "images/projects/ML/tcc_main.webp",
+    "github_link": "https://github.com/kkkissiedu/Traffic-Car-Counter",
     "slideshow_images": [
       "images/projects/ML/tcc_main.webp",
       "images/projects/ML/tcc.webp",
       "images/projects/ML/tcc_1.webp",
     ],
     "case_study": {
-        "problem": "Though the majority of rebars used in construction of residential and commercial buildings in Ghana are locally-sourced, there is a lack of extensive research into the fatigue life of these rebars under low-cycle, high intensity loading.",
-        "process": "OpenCV and CVZone were utilized for processing of video feed. Backbone was built on YOLOv8 for detection and the SORT algorithm for robust object tracking.",
-        "outcome": "Realtime computer vision model that detects multiple vehicle types, assigns unique IDs to each instance and counts vehicles after crossing a defined virtual line."
+        "problem": "Manual traffic counting is inefficient and prone to errors. An automated system was needed for accurate, real-time vehicle tracking and counting for traffic management applications.",
+        "process": "OpenCV and CVZone were utilized for processing of video feed. The model backbone was built on YOLOv8 for detection and the SORT algorithm for robust object tracking across frames.",
+        "outcome": "A realtime computer vision model that detects multiple vehicle types, assigns unique IDs to each instance, and counts vehicles as they cross a defined virtual line."
     },
     "technologies": [
       "Python & Jupyter Notebooks",
-      "Convolutional Neural Networks (CNN)",
       "PyTorch",
       "OpenCV",
       "cvzone",
@@ -306,7 +310,6 @@ const projectsData = [
     "title": "Unilever Products Showcase",
     "short_description": "Immersive VR showcase of Unilever products",
     "cover_image": "images/projects/3D/unilever_main.svg",
-    "youtube_video_id": "cv-PEmzjJyM",
     "slideshow_images": [
       "images/projects/3D/unilever_main.svg",
       "images/projects/3D/UNILEVER1.webp",
@@ -329,9 +332,10 @@ const projectsData = [
     "id": "modal-13",
     "order":9,
     "category": "design",
-    "title": "SuCasa  No.3 O'Grantson Communities Virtual Tour",
+    "title": "SuCasa Virtual Tour",
     "short_description": "Immersive VR shopping experience for SuCasa customers",
     "cover_image": "images/projects/3D/sucasa_main.webp",
+    "youtube_video_id": "GREgRXG-fbo",
     "slideshow_images": [
       "images/projects/3D/sucasa_main.webp",
       "images/projects/3D/sucasa_3.webp",
