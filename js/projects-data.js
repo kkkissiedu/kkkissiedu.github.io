@@ -413,5 +413,117 @@ const projectsData = [
       "Blender",
       "Adobe Substance Painter",
     ]
-  }
+  },
+  {
+    "id": "modal-16",
+    "order": 16,
+    "category": "ml-research",
+    "title": "Synthetic Concrete Crack Generation with VAEs",
+    "short_description": "A Variational Autoencoder (VAE) trained to generate high-fidelity, synthetic concrete crack images to solve data scarcity.",
+    "cover_image": "images/projects/ML/vae_main.webp",
+    "github_link": "https://github.com/kkkissiedu/VAE-Crack-Synthesis",
+    "slideshow_images": [
+      "images/projects/ML/vae_main.webp",
+      "images/projects/ML/vae.webp",
+      "images/projects/ML/vae_1.webp"
+    ],
+    "case_study": {
+      "problem": "A significant challenge in developing robust computer vision models for structural health monitoring is the scarcity of diverse, high-quality data. Manually collecting and annotating thousands of crack images is impractical and expensive.",
+      "process": "A Variational Autoencoder (VAE) was built and trained in PyTorch on a dataset of concrete crack images. The VAE learns a compressed, latent representation of the data, allowing it to generate entirely new, realistic images of concrete cracks by sampling from this learned latent space.",
+      "outcome": "The trained model successfully generates high-fidelity, synthetic images of concrete cracks. This provides a scalable and cost-effective solution to data scarcity, enabling the creation of larger and more diverse datasets for training other computer vision models, like the U-Net segmentation model."
+    },
+    "technologies": [
+      "Python",
+      "PyTorch",
+      "Variational Autoencoder (VAE)",
+      "Generative Models",
+      "NumPy",
+      "Matplotlib",
+      "Jupyter Notebook"
+    ]
+   },
+   {
+    "id": "modal-17",
+    "order": 17,
+    "category": "ml-research",
+    "title": "Uncertainty-Aware Surrogate Modeling for Concrete Strength Prediction",
+    "short_description": "Comparing Gaussian Process Regressors and Deep Ensembles for predicting concrete strength with uncertainty quantification.",
+    "cover_image": "images/projects/ML/surrogate_main.webp", 
+    "github_link": "https://github.com/kkkissiedu/Uncertainty-Quantification-for-SHM",
+    "slideshow_images": [
+      "images/projects/ML/surrogate_main.webp",
+      "images/projects/ML/surrogate_1.webp",
+      "images/projects/ML/surrogate_2.webp"
+    ],
+    "case_study": {
+      "problem": "Traditional predictive models in engineering often provide point estimates without quantifying their own confidence. For safety-critical applications like predicting concrete strength, it's crucial to have reliable uncertainty bounds for each prediction.",
+      "process": "Two advanced probabilistic modeling techniques were implemented and compared: Gaussian Process Regressors (GPR) and Deep Ensembles with Aleatoric Uncertainty. Both models were trained on the same concrete compressive strength dataset to create reliable surrogate models that could predict strength and quantify uncertainty.",
+      "outcome": "Both models successfully produced reliable predictions for concrete compressive strength, complete with principled uncertainty bounds. This work demonstrates a robust methodology for creating uncertainty-aware models, which are essential for risk assessment and decision-making in structural engineering."
+    },
+    "technologies": [
+      "Python",
+      "PyTorch",
+      "Scikit-learn",
+      "Gaussian Process Regressor (GPR)",
+      "Deep Ensembles",
+      "Uncertainty Quantification",
+      "Pandas",
+      "Matplotlib",
+      "Jupyter Notebook"
+    ]
+  },
+  {
+    "id": "modal-18",
+    "order": 18,
+    "category": "ml-research",
+    "title": "PINN for Beam Deflection",
+    "short_description": "A Physics-Informed Neural Network (PINN) that solves the Euler-Bernoulli beam equation for deflection analysis.",
+    "cover_image": "images/projects/ML/pinn_main.webp", 
+    "github_link": "https://github.com/kkkissiedu/PINN-for-Beam-Deflection",
+    "slideshow_images": [
+      "images/projects/ML/pinn_main.webp",
+      "images/projects/ML/pinn.webp"
+    ],
+    "case_study": {
+      "problem": "Traditional numerical methods like the Finite Element Method (FEM) for solving differential equations can be computationally expensive and require extensive domain meshing. There is a need for an alternative, meshless approach that leverages deep learning.",
+      "process": "A Physics-Informed Neural Network (PINN) was built in PyTorch. The model's loss function was designed to enforce the governing PDE of the Euler-Bernoulli beam theory and its boundary conditions directly, allowing the network to learn the physically correct solution without labeled training data.",
+      "outcome": "The trained PINN successfully solved the Euler-Bernoulli equation, accurately predicting the deflection of a simply supported beam under a uniform load. This project demonstrates the potential of PINNs as a powerful, mesh-free tool for solving complex engineering problems."
+    },
+    "technologies": [
+      "Python",
+      "PyTorch",
+      "Physics-Informed Neural Network (PINN)",
+      "Deep Learning",
+      "Euler-Bernoulli Beam Theory",
+      "Matplotlib",
+      "Jupyter Notebook"
+    ]
+  },
+  {
+    "id": "modal-19",
+    "order": 19,
+    "category": "ml-research",
+    "title": "Probabilistic Damage Classification with MC Dropout",
+    "short_description": "A Bayesian Neural Network (BNN) that classifies concrete damage while quantifying its own prediction uncertainty.",
+    "cover_image": "images/projects/ML/bnn_main.webp", 
+    "github_link": "https://github.com/kkkissiedu/Probablistic-Crack-Detection-with-MC-Dropout",
+    "slideshow_images": [
+      "images/projects/ML/bnn_main.webp", // <-- Add your slideshow images here
+      "images/projects/ML/bnn_1.webp"
+    ],
+    "case_study": {
+      "problem": "Standard deep learning models for damage classification often act as black boxes, providing predictions without indicating their confidence. This is a significant drawback for safety-critical engineering applications where understanding a model's uncertainty is crucial.",
+      "process": "A Bayesian Neural Network (BNN) was implemented using PyTorch and Pyro. Unlike a standard CNN, the BNN learns a distribution over its weights, allowing it to perform approximate Bayesian inference. This enables the model to quantify its uncertainty for each prediction.",
+      "outcome": "The BNN successfully classifies concrete images as cracked or uncracked while also providing a measure of its predictive uncertainty. This probabilistic approach is critical for building more reliable and trustworthy AI systems for structural health monitoring, allowing engineers to identify predictions that the model is uncertain about for further review."
+    },
+    "technologies": [
+      "Python",
+      "PyTorch",
+      "Pyro (Probabilistic Programming)",
+      "Bayesian Neural Network (BNN)",
+      "Uncertainty Quantification",
+      "Scikit-learn",
+      "Jupyter Notebook"
+    ]
+  },
 ];
