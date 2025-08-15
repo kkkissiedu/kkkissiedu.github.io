@@ -115,7 +115,7 @@ const projectsData = [
     "title": "Concrete Crack Segmentation Model",
     "short_description": "A CNN model for semantic segmentation of cracks in concrete surfaces from images.",
     "cover_image": "images/projects/ML/ccseg_main.webp",
-    "github_link": "https://github.com/kkkissiedu/Concrete-Crack-Segmentation",
+    "github_link": "https://github.com/kkkissiedu/Concrete-Crack-Segmentation-Model",
     "slideshow_images": [
       "images/projects/ML/ccseg_main.webp",
       "images/projects/ML/ccseg_1.webp",
@@ -143,7 +143,7 @@ const projectsData = [
     "title": "Concrete Strength Prediction",
     "short_description": "A Random Forest Regressor Model for estimating the Compressive Strength of Concrete",
     "cover_image": "images/projects/ML/csp_main.webp",
-    "github_link": "https://github.com/kkkissiedu/Concrete-Strength-Prediction-Model",
+    "github_link": "https://github.com/kkkissiedu/CONCRETE-STRENGTH-PREDICTION-RANDOMFOREST-MODEL",
     "slideshow_images": [
       "images/projects/ML/csp_main.webp",
       "images/projects/ML/csp3.png",
@@ -171,7 +171,7 @@ const projectsData = [
     "title": "Concrete Site Safety Detector",
     "short_description": "AI-powered system for real-time monitoring of Personal Protective Equipment (PPE) compliance on construction sites.",
     "cover_image": "images/projects/ML/css_main.webp",
-    "github_link": "https://github.com/kkkissiedu/Concrete-Site-Safety-Detector",
+    "github_link": "https://github.com/kkkissiedu/Construction-Site-Safety",
     "slideshow_images": [
       "images/projects/ML/css_main.webp",
       "images/projects/ML/css1.webp",
@@ -310,6 +310,7 @@ const projectsData = [
     "title": "Unilever Products Showcase",
     "short_description": "Immersive VR showcase of Unilever products",
     "cover_image": "images/projects/3D/unilever_main.svg",
+    "youtube_video_id": "cv-PEmzjJyM",
     "slideshow_images": [
       "images/projects/3D/unilever_main.svg",
       "images/projects/3D/UNILEVER1.webp",
@@ -335,7 +336,6 @@ const projectsData = [
     "title": "SuCasa Virtual Tour",
     "short_description": "Immersive VR shopping experience for SuCasa customers",
     "cover_image": "images/projects/3D/sucasa_main.webp",
-    "youtube_video_id": "GREgRXG-fbo",
     "slideshow_images": [
       "images/projects/3D/sucasa_main.webp",
       "images/projects/3D/sucasa_3.webp",
