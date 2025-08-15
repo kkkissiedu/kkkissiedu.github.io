@@ -6,15 +6,15 @@ const projectsData = [
     "category": "engineering",
     "title": "WD Studio Apartment",
     "short_description": "WD Studio Apartment",
-    "cover_image": "images/projects/Structural/wd_main.webp", // Local path
+    "cover_image": "images/projects/Structural/wd_main.webp",
     "slideshow_images": [
-      "images/projects/Structural/wd_main.webp", // Local path
-      "images/projects/Structural/wd_1.webp", // Local path
-      "images/projects/Structural/wd_2.webp", // Local path
-      "images/projects/Structural/wd_3.webp", // Local path
-      "images/projects/Structural/wd_4.webp", // Local path
-      "images/projects/Structural/wd_5.webp", // Local path
-      "images/projects/Structural/wd_6.webp", // Local path
+      "images/projects/Structural/wd_main.webp",
+      "images/projects/Structural/wd_1.webp",
+      "images/projects/Structural/wd_2.webp",
+      "images/projects/Structural/wd_3.webp",
+      "images/projects/Structural/wd_4.webp",
+      "images/projects/Structural/wd_5.webp",
+      "images/projects/Structural/wd_6.webp",
     ],
     "case_study": {
       "problem": "4 - storey Studio Apartment located in Kwamo-Kumasi. Designed for Mr. Hayford Boateng.",
@@ -35,13 +35,12 @@ const projectsData = [
     "category": "engineering",
     "title": "Pineapple Hill Residential",
     "short_description": "Pineapple Hill Residential",
-    "cover_image": "images/projects/Structural/ph_main.webp", // Local path
+    "cover_image": "images/projects/Structural/ph_main.webp",
     "slideshow_images": [
-      "images/projects/Structural/ph_main.webp", // Local path
-      "images/projects/Structural/ph_1.webp", // Local path
-      "images/projects/Structural/ph_2.webp", // Local path
-      "images/projects/Structural/ph_3.webp", // Local path
-      
+      "images/projects/Structural/ph_main.webp",
+      "images/projects/Structural/ph_1.webp",
+      "images/projects/Structural/ph_2.webp",
+      "images/projects/Structural/ph_3.webp",
     ],
     "case_study": {
       "problem": "Multi - level residential building for Mr. Paul Anson Sherwood Saul",
@@ -62,14 +61,13 @@ const projectsData = [
     "category": "engineering",
     "title": "Spectra Medical Center",
     "short_description": "Spectra Medical Center",
-    "cover_image": "images/projects/Structural/spectra.webp", // Local path
+    "cover_image": "images/projects/Structural/spectra.webp",
     "slideshow_images": [
-      "images/projects/Structural/spectra.webp", // Local path
-      "images/projects/Structural/spectra_1.webp", // Local path
-      "images/projects/Structural/spectra_2.webp", // Local path
-      "images/projects/Structural/spectra_3.webp", // Local path
-      "images/projects/Structural/spectra_4.webp", // Local path
-      
+      "images/projects/Structural/spectra.webp",
+      "images/projects/Structural/spectra_1.webp",
+      "images/projects/Structural/spectra_2.webp",
+      "images/projects/Structural/spectra_3.webp",
+      "images/projects/Structural/spectra_4.webp",
     ],
     "case_study": {
       "problem": "7 - storey Hospital Building for Spectra Health Imaging Limited - Accra.",
@@ -90,13 +88,12 @@ const projectsData = [
     "category": "engineering",
     "title": "Zenkawa Hospital",
     "short_description": "Zenkawa Hospital",
-    "cover_image": "images/projects/Structural/zenkawa_main.webp", // Local path
+    "cover_image": "images/projects/Structural/zenkawa_main.webp",
     "slideshow_images": [
-      "images/projects/Structural/zenkawa_main.webp", // Local path
-      "images/projects/Structural/zenkawa.webp", // Local path
-      "images/projects/Structural/zenkawa_1.webp", // Local path
-      "images/projects/Structural/zenkawa_2.webp", // Local path
-      
+      "images/projects/Structural/zenkawa_main.webp",
+      "images/projects/Structural/zenkawa.webp",
+      "images/projects/Structural/zenkawa_1.webp",
+      "images/projects/Structural/zenkawa_2.webp",
     ],
     "case_study": {
       "problem": "7 - storey Hospital Building for Yarok Ephect, Zenkawa Hospitals Adenta - Accra.",
@@ -117,12 +114,12 @@ const projectsData = [
     "category": "ml-research",
     "title": "Concrete Crack Segmentation Model",
     "short_description": "A CNN model for semantic segmentation of cracks in concrete surfaces from images.",
-    "cover_image": "images/projects/ML/ccseg_main.webp", // Local path
+    "cover_image": "images/projects/ML/ccseg_main.webp",
     "slideshow_images": [
-      "images/projects/ML/ccseg_main.webp", // Local path
-      "images/projects/ML/ccseg_1.webp", // Local path
-      "images/projects/ML/ccseg_2.jpg", // Local path
-      "images/projects/ML/ccseg_3.jpg"  // Local path
+      "images/projects/ML/ccseg_main.webp",
+      "images/projects/ML/ccseg_1.webp",
+      "images/projects/ML/ccseg_2.jpg",
+      "images/projects/ML/ccseg_3.jpg"
     ],
     "case_study": {
         "problem": "Manual inspection of concrete infrastructure for cracks is time-consuming, expensive, and prone to human error. There was a need for an automated system to improve the speed and accuracy of structural health monitoring.",
@@ -144,12 +141,12 @@ const projectsData = [
     "category": "ml-research",
     "title": "Concrete Strength Prediction",
     "short_description": "A Random Forest Regressor Model for estimating the Compressive Strength of Concrete",
-    "cover_image": "images/projects/ML/csp_main.webp", // Local path
+    "cover_image": "images/projects/ML/csp_main.webp",
     "slideshow_images": [
-      "images/projects/ML/csp_main.webp", // Local path
-      "images/projects/ML/csp3.png", // Local path
-      "images/projects/ML/csp1.png", // Local path
-      "images/projects/ML/csp2.png"  // Local path
+      "images/projects/ML/csp_main.webp",
+      "images/projects/ML/csp3.png",
+      "images/projects/ML/csp1.png",
+      "images/projects/ML/csp2.png"
     ],
     "case_study": {
         "problem": "This project applies machine learning to a core civil engineering challenge: predicting the compressive strength of concrete. It provides a faster, data-driven method.",
@@ -171,11 +168,11 @@ const projectsData = [
     "category": "ml-research",
     "title": "Concrete Site Safety Detector (Ongoing)",
     "short_description": "AI-powered system for real-time monitoring of Personal Protective Equipment (PPE) compliance on construction sites.",
-    "cover_image": "images/projects/ML/css_main.webp", // Local path
+    "cover_image": "images/projects/ML/css_main.webp",
     "slideshow_images": [
-      "images/projects/ML/css_main.webp", // Local path
-      "images/projects/ML/css1.webp", // Local path
-      "images/projects/ML/css2.webp", // Local path
+      "images/projects/ML/css_main.webp",
+      "images/projects/ML/css1.webp",
+      "images/projects/ML/css2.webp",
 
     ],
     "case_study": {
@@ -252,11 +249,11 @@ const projectsData = [
     "category": "ml-research",
     "title": "Traffic Car Counter",
     "short_description": "Realtime Car Counter based on YOLOv8",
-    "cover_image": "images/projects/ML/tcc_main.webp", // Local path
+    "cover_image": "images/projects/ML/tcc_main.webp",
     "slideshow_images": [
-      "images/projects/ML/tcc_main.webp", // Local path
-      "images/projects/ML/tcc.webp", // Local path
-      "images/projects/ML/tcc_1.webp", // Local path
+      "images/projects/ML/tcc_main.webp",
+      "images/projects/ML/tcc.webp",
+      "images/projects/ML/tcc_1.webp",
     ],
     "case_study": {
         "problem": "Though the majority of rebars used in construction of residential and commercial buildings in Ghana are locally-sourced, there is a lack of extensive research into the fatigue life of these rebars under low-cycle, high intensity loading.",
@@ -279,17 +276,17 @@ const projectsData = [
     "category": "design",
     "title": "MTN HYPE Event",
     "short_description": "Branded 3D assets for MTN HYPE Event",
-    "cover_image": "images/projects/3D/hype_main.avif", // Local path
+    "cover_image": "images/projects/3D/hype_main.avif",
     "slideshow_images": [
       "images/projects/3D/hype_main.avif",
-      "images/projects/3D/hype_7.webp",  // Local path
-      "images/projects/3D/hype 1.webp", // Local path
-      "images/projects/3D/hype 2.webp",  // Local path
-      "images/projects/3D/hype 3.webp",  // Local path
-      "images/projects/3D/hype 4.webp",  // Local path
-      "images/projects/3D/hype 5.webp",  // Local path
-      "images/projects/3D/hype 6.webp",  // Local path
-      "images/projects/3D/hype 7.webp",  // Local path
+      "images/projects/3D/hype_7.webp",
+      "images/projects/3D/hype 1.webp",
+      "images/projects/3D/hype 2.webp",
+      "images/projects/3D/hype 3.webp",
+      "images/projects/3D/hype 4.webp",
+      "images/projects/3D/hype 5.webp",
+      "images/projects/3D/hype 6.webp",
+      "images/projects/3D/hype 7.webp",
     ],
     "case_study": {
         "overview": "Made 3D Assets for MTN HYPE Event in Togo. Assets were used in showcasing event souvenirs and creating Snapchat AR Filters.",
@@ -308,13 +305,14 @@ const projectsData = [
     "category": "design",
     "title": "Unilever Products Showcase",
     "short_description": "Immersive VR showcase of Unilever products",
-    "cover_image": "images/projects/3D/unilever_main.svg", // Local path
+    "cover_image": "images/projects/3D/unilever_main.svg",
+    "youtube_video_id": "cv-PEmzjJyM",
     "slideshow_images": [
       "images/projects/3D/unilever_main.svg",
-      "images/projects/3D/UNILEVER1.webp",  // Local path
-      "images/projects/3D/UNILEVER2.webp",  // Local path
-      "images/projects/3D/UNILEVER3.webp",  // Local path
-      "images/projects/3D/UNILEVER4.webp",  // Local path
+      "images/projects/3D/UNILEVER1.webp",
+      "images/projects/3D/UNILEVER2.webp",
+      "images/projects/3D/UNILEVER3.webp",
+      "images/projects/3D/UNILEVER4.webp",
     ],
     "case_study": {
         "overview": "Created 3D models of Unilever products for a Unilever board VR meeting to showcase the company's progress since inception.",
@@ -333,7 +331,7 @@ const projectsData = [
     "category": "design",
     "title": "SuCasa  No.3 O'Grantson Communities Virtual Tour",
     "short_description": "Immersive VR shopping experience for SuCasa customers",
-    "cover_image": "images/projects/3D/sucasa_main.webp", // Local path
+    "cover_image": "images/projects/3D/sucasa_main.webp",
     "slideshow_images": [
       "images/projects/3D/sucasa_main.webp",
       "images/projects/3D/sucasa_3.webp",
@@ -363,7 +361,7 @@ const projectsData = [
     "category": "design",
     "title": "Tidal Rave 23 & 24 (Canceled)",
     "short_description": "Visuals for Tidal Rave Music Festival",
-    "cover_image": "images/projects/3D/tidal_main.webp", // Local path
+    "cover_image": "images/projects/3D/tidal_main.webp",
     "slideshow_images": [
       "images/projects/3D/tidal_main.webp",
       "images/projects/3D/tidal.webp",
@@ -386,7 +384,6 @@ const projectsData = [
       "ZBrush",
       "Marvelous Designer",
       "Character Creator",
-      
     ]
   },
   {
@@ -395,7 +392,7 @@ const projectsData = [
     "category": "design",
     "title": "VAAL Bedroom Units AR/VR Experience",
     "short_description": "3D Models of the 3 and 4 Bedroom Units for VAAL Real Estate Ghana",
-    "cover_image": "images/projects/3D/vaal_main.webp", // Local path
+    "cover_image": "images/projects/3D/vaal_main.webp",
     "slideshow_images": [
       "images/projects/3D/vaal_main.webp",
       "images/projects/3D/vaal_2.webp",

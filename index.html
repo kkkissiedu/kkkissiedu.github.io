@@ -63,15 +63,15 @@
 
     <section id="about" class="py-20 md:py-32 bg-secondary">
         <div class="container mx-auto px-4 sm:px-6">
-            <div class="grid md:grid-cols-5 gap-8 md:gap-12 items-center">
-                <div class="md:col-span-2 animated-element"><img src="images/kk.jpg" onerror="this.onerror=null;this.src='https://placehold.co/600x800/101010/e0e0e0?text=Alex+Doe';" alt="Kwabena Kissiedu" class="rounded-lg shadow-2xl w-full h-auto object-cover"></div>
-                <div class="md:col-span-3 animated-element">
+            <div class="grid md:grid-cols-3 gap-8 md:gap-12 items-center">
+                <div class="md:col-span-1 animated-element"><img src="images/kk.jpg" onerror="this.onerror=null;this.src='https://placehold.co/600x800/101010/e0e0e0?text=Alex+Doe';" alt="Kwabena Kissiedu" class="rounded-lg shadow-2xl w-full max-w-sm mx-auto h-auto object-cover"></div>
+                <div class="md:col-span-2 animated-element">
                     <h2 class="text-3xl md:text-4xl font-bold mb-4">About Me</h2>
                     <p class="mb-6 text-base md:text-lg">I am a passionate engineer and innovator with a unique blend of expertise in structural analysis, predictive modeling, and computational design. My goal is to leverage cutting-edge technology to solve complex engineering challenges and contribute to the development of next-generation infrastructure.</p>
-                    <p class="mb-8 text-base md:text-lg">With a strong foundation in civil engineering principles and advanced skills in Python, TensorFlow, and parametric design tools, I thrive on transforming complex data into actionable insights and elegant design solutions.</p>
+                    <p class="mb-8 text-base md:text-lg">With a strong foundation in civil engineering principles and advanced skills in Python, PyTorch, Blender, and BIM SOftware, I thrive on transforming complex data into actionable insights and elegant design solutions.</p>
                     <div class="flex flex-wrap gap-4">
-                        <button id="cv-modal-btn" class="w-full sm:w-auto text-center bg-gray-800 hover:bg-gray-700 text-white font-semibold py-3 px-6 rounded-lg transition-colors cta-link">Download CV</button>
-                        <a href="files/Portfolio - Kwabena Kissiedu - structural.pdf" download class="w-full sm:w-auto text-center bg-gray-800 hover:bg-gray-700 text-white font-semibold py-3 px-6 rounded-lg transition-colors cta-link">Download Portfolio</a>
+                        <button id="cv-modal-btn" class="w-full sm:w-auto text-center cv-button font-semibold py-3 px-6 rounded-lg transition-colors cta-link">Download CV</button>
+                        <a href="files/Portfolio - Kwabena Kissiedu - structural.pdf" download class="w-full sm:w-auto text-center cv-button font-semibold py-3 px-6 rounded-lg transition-colors cta-link">Download Portfolio</a>
                         <a href="#contact" class="w-full sm:w-auto text-center bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-3 px-6 rounded-lg transition-colors cta-link">Contact Me</a>
                     </div>
                 </div>
@@ -105,7 +105,7 @@
 
             <div class="mb-16">
                 <h3 class="text-2xl md:text-3xl font-bold text-center mb-8 section-title animated-element">Featured Projects</h3>
-                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div id="featured-projects-container" class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                     <div class="project-card bg-tertiary rounded-lg overflow-hidden cursor-pointer animated-element" data-modal-target="modal-5">
                         <div class="relative overflow-hidden h-64 md:h-80">
                             <img src="images/projects/ML/ccseg_main.webp" alt="Concrete Crack Segmentation Model" class="card-image w-full h-full object-cover">
@@ -220,7 +220,7 @@
             <h2 class="text-2xl font-bold mb-6">Download CV</h2>
             <div class="flex flex-col space-y-4">
                 <a href="files/CV - Kwabena Kissiedu - Academic.pdf" download class="w-full text-center bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-3 px-6 rounded-lg transition-colors cta-link">Academic CV</a>
-                <a href="files/professional-cv.pdf" download class="w-full text-center bg-gray-700 hover:bg-gray-600 text-white font-semibold py-3 px-6 rounded-lg transition-colors cta-link">Professional CV</a>
+                <a href="files/professional-cv.pdf" download class="w-full text-center cv-button font-semibold py-3 px-6 rounded-lg transition-colors cta-link">Professional CV</a>
             </div>
         </div>
     </div>

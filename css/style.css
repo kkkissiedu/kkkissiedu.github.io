@@ -72,7 +72,7 @@ body.cursor-hovered #cursor-outline {
     background: linear-gradient(90deg, #4f46e5, #ec4899);
     -webkit-background-clip: text;
     background-clip: text;
-    color: transparent;
+    color: transparent !important;
     -webkit-text-fill-color: transparent;
 }
 
@@ -110,15 +110,13 @@ body.cursor-hovered #cursor-outline {
 
 .filter-btn.active {
     background-color: #4f46e5;
-    color: white;
+}
+html:not(.dark) .filter-btn.active {
+    color: #ffffff;
 }
 
 .prev-slide, .next-slide {
-    transition: background-color 0.2s ease, opacity 0.3s ease;
-    opacity: 0;
-}
-.slideshow-container:hover .prev-slide,
-.slideshow-container:hover .next-slide {
+    transition: background-color 0.2s ease;
     opacity: 1;
 }
 
@@ -189,7 +187,11 @@ body.cursor-hovered #cursor-outline {
     background-color: rgba(0, 0, 0, 0.8);
 }
 
-.slideshow-container .expand-text {
+.slide {
+    position: relative;
+}
+
+.slide .expand-text {
     position: absolute;
     bottom: 1rem;
     left: 50%;
@@ -200,18 +202,14 @@ body.cursor-hovered #cursor-outline {
     border-radius: 9999px;
     font-size: 0.80rem;
     opacity: 1;
-    transition: opacity 0.3s ease, background-color 0.3s ease, color 0.3s ease;
+    transition: background-color 0.3s ease, color 0.3s ease;
     pointer-events: none;
 }
 
-html:not(.dark) .slideshow-container .expand-text {
+html:not(.dark) .slide .expand-text {
     background-color: rgba(255, 255, 255, 0.85);
     color: var(--text-primary);
     font-weight: 500;
-}
-
-.slideshow-container:hover .expand-text {
-    opacity: 1;
 }
 
 @media (max-width: 767px) {
@@ -239,16 +237,49 @@ html:not(.dark) header { background-color: rgba(255, 255, 255, 0.5); }
 
 #mobile-menu { background-color: var(--bg-secondary); }
 
-.nav-link, #mobile-menu a, header a, header button, #mobile-menu button { color: var(--text-primary); }
+/* CORRECTED RULE: More specific to avoid affecting section-title */
+nav .nav-link, #mobile-menu a, header > div > a:not(.section-title), header button, #mobile-menu button { 
+    color: var(--text-primary); 
+}
 .nav-link:hover { color: var(--accent-gold); }
 
-.hero-content p, #about p, #services p, #projects p, #skills p, #contact p, footer p { color: var(--text-secondary); }
-.project-card .text-desc { color: var(--text-secondary); }
+/* Target hero h1 specifically, excluding the span with the gradient */
+.hero-content h1 {
+    color: var(--text-primary);
+}
+
+
+.hero-content p, #about p, #services p, #projects p, #skills p, #contact p, footer p, .project-card .text-desc { color: var(--text-secondary); }
 
 .service-card, .project-card, .bento-item, #contact form { background-color: var(--bg-tertiary); }
 
 .modal-content { background-color: var(--bg-secondary); }
 .modal-content .text-gray-300 { color: var(--text-secondary); }
+
+.modal-header {
+    border-color: var(--border-color);
+}
+.tech-tag {
+    background-color: var(--bg-tertiary);
+    color: var(--text-primary);
+}
+.cv-button {
+    background-color: var(--bg-tertiary);
+    color: var(--text-primary);
+    border: 1px solid var(--border-color);
+}
+.cv-button:hover {
+    background-color: var(--border-color);
+}
+html.dark .cv-button {
+    color: #e0e0e0;
+}
+.modal-close {
+    color: var(--text-secondary);
+}
+.modal-close:hover {
+    color: var(--text-primary);
+}
 
 #contact input, #contact textarea {
     background-color: var(--bg-primary);
@@ -266,11 +297,31 @@ html:not(.dark) #contact textarea {
 
 .filter-btn { color: var(--text-primary); }
 
-html:not(.dark) .get-in-touch-btn {
-    color: #fff !important;
+.text-white { color: var(--text-primary); }
+html.dark .text-white { color: #e0e0e0; }
+
+.slide.video-slide {
+    position: relative;
+    padding-top: 56.25%;
+    height: 0;
+    overflow: hidden;
+    background-color: #000;
+    border-radius: 0.5rem;
 }
 
-.bg-gray-800 { background-color: var(--bg-tertiary); border: 1px solid var(--border-color); }
-html:not(.dark) .bg-gray-800:hover { background-color: #e5e7eb; }
+.youtube-iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
 
-html.dark .text-white { color: #e0e0e0; }
+.text-indigo-400 { color: #818cf8; }
+.text-pink-400 { color: #f472b6; }
+.text-teal-400 { color: #2dd4bf; }
+
+html:not(.dark) .text-indigo-400 { color: #4f46e5; }
+html:not(.dark) .text-pink-400 { color: #db2777; }
+html:not(.dark) .text-teal-400 { color: #0d9488; }

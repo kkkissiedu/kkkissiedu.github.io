@@ -55,7 +55,9 @@ document.addEventListener('DOMContentLoaded', function() {
     if (mobileMenuBtn && mobileMenu) {
         const navLinks = mobileMenu.querySelectorAll('a, button');
         mobileMenuBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
-        navLinks.forEach(link => link.addEventListener('click', () => mobileMenu.classList.add('hidden')));
+        navLinks.forEach(link => link.addEventListener('click', () => {
+            setTimeout(() => mobileMenu.classList.add('hidden'), 150);
+        }));
     }
 
     // --- Three.js Hero Animation ---
@@ -109,7 +111,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // --- Scroll Animations ---
     function initScrollAnimations() {
-        const animatedElements = document.querySelectorAll('.animated-element');
+        const animatedElements = document.querySelectorAll('.animated-element:not(.visible)');
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
@@ -132,24 +134,6 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // --- Lightbox Logic ---
-    if (lightbox && lightboxImg && lightboxClose) {
-        lightboxClose.addEventListener('click', () => closeLightbox());
-        lightbox.addEventListener('click', (e) => {
-            if (e.target === lightbox) {
-                closeLightbox();
-            }
-        });
-        lightboxNext.addEventListener('click', () => showNextLightboxImage());
-        lightboxPrev.addEventListener('click', () => showPrevLightboxImage());
-        document.addEventListener('keydown', (e) => {
-            if (lightbox.classList.contains('visible')) {
-                if (e.key === 'ArrowRight') showNextLightboxImage();
-                if (e.key === 'ArrowLeft') showPrevLightboxImage();
-                if (e.key === 'Escape') closeLightbox();
-            }
-        });
-    }
-
     function openLightbox(project, startIndex) {
         if (!lightbox || !lightboxImg) return;
         currentLightboxProjectImages = project.slideshow_images;
@@ -179,30 +163,27 @@ document.addEventListener('DOMContentLoaded', function() {
         updateLightboxImage();
     }
 
-    // --- Project Display and Event Handling ---
-    function displayProjects(projects) {
-        if (!projectGrid || !modalsContainer) return;
-        projectGrid.innerHTML = '';
+    if (lightbox && lightboxImg && lightboxClose) {
+        lightboxClose.addEventListener('click', () => closeLightbox());
+        lightbox.addEventListener('click', (e) => {
+            if (e.target === lightbox) closeLightbox();
+        });
+        lightboxNext.addEventListener('click', () => showNextLightboxImage());
+        lightboxPrev.addEventListener('click', () => showPrevLightboxImage());
+        document.addEventListener('keydown', (e) => {
+            if (!lightbox.classList.contains('visible')) return;
+            if (e.key === 'ArrowRight') showNextLightboxImage();
+            if (e.key === 'ArrowLeft') showPrevLightboxImage();
+            if (e.key === 'Escape') closeLightbox();
+        });
+    }
+
+    // --- Project Generation Logic ---
+    function generateAllModals(allProjects) {
         modalsContainer.innerHTML = '';
-        const categoryColors = { engineering: 'text-indigo-400', 'ml-research': 'text-pink-400', design: 'text-teal-400' };
         const modalCategoryColors = { engineering: 'text-indigo-400 bg-indigo-900', 'ml-research': 'text-pink-400 bg-pink-900', design: 'text-teal-400 bg-teal-900' };
 
-        projects.forEach(project => {
-            const cardHtml = `
-                <div class="project-card-wrapper animated-element" data-category="${project.category}">
-                    <div class="project-card bg-tertiary rounded-lg overflow-hidden cursor-pointer" data-modal-target="${project.id}">
-                        <div class="relative overflow-hidden h-56">
-                            <img src="${project.cover_image}" alt="${project.title}" class="card-image w-full h-full object-cover">
-                        </div>
-                        <div class="p-6">
-                            <h3 class="text-xl font-bold mb-2">${project.title}</h3>
-                            <p class="text-desc mb-4 text-sm">${project.short_description}</p>
-                            <span class="text-xs font-semibold capitalize ${categoryColors[project.category] || 'text-gray-400'}">${project.category.replace('-', ' ')}</span>
-                        </div>
-                    </div>
-                </div>`;
-            projectGrid.insertAdjacentHTML('beforeend', cardHtml);
-            
+        allProjects.forEach(project => {
             let caseStudyHtml;
             if (project.category === 'design') {
                 caseStudyHtml = `
@@ -217,17 +198,33 @@ document.addEventListener('DOMContentLoaded', function() {
                 `;
             }
 
+            let slidesHtml = '';
+            let isFirstSlide = true;
+            if (project.youtube_video_id) {
+                slidesHtml += `
+                    <div class="slide video-slide">
+                        <iframe class="youtube-iframe" src="https://www.youtube.com/embed/${project.youtube_video_id}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                    </div>`;
+                isFirstSlide = false;
+            }
+            slidesHtml += project.slideshow_images.map((img, index) => {
+                const hiddenClass = (!isFirstSlide && index === 0) || (isFirstSlide && index !== 0) ? 'hidden' : '';
+                return `<div class="slide ${hiddenClass}" data-index="${index}">
+                            <img src="${img}" class="slide-image rounded-lg w-full h-full object-cover cursor-pointer">
+                            <div class="expand-text">Click to expand image</div>
+                        </div>`;
+            }).join('');
+
             const modalHtml = `
                 <div id="${project.id}" class="project-detail-modal modal fixed inset-0 bg-black bg-opacity-90 p-4 sm:p-8 opacity-0 invisible z-[100] overflow-y-auto flex items-center justify-center">
                     <div class="modal-content rounded-lg w-full max-w-6xl max-h-[95vh] flex flex-col transform scale-95 opacity-0">
-                        <div class="flex-shrink-0 p-4 flex justify-between items-center border-b border-gray-800">
+                        <div class="modal-header flex-shrink-0 p-4 flex justify-between items-center border-b">
                              <h2 class="text-lg md:text-2xl font-bold">Project Details</h2>
-                             <button class="modal-close text-gray-400 hover:text-white text-4xl font-light cta-link">&times;</button>
+                             <button class="modal-close text-4xl font-light cta-link">&times;</button>
                         </div>
                         <div class="flex-grow p-4 md:p-8 overflow-y-auto grid md:grid-cols-2 gap-6 md:gap-8">
                             <div class="slideshow-container relative w-full h-64 md:h-full group">
-                                ${project.slideshow_images.map((img, index) => `<div class="slide ${index !== 0 ? 'hidden' : ''}" data-index="${index}"><img src="${img}" class="slide-image rounded-lg w-full h-full object-cover cursor-pointer"></div>`).join('')}
-                                <div class="expand-text">Click to expand image</div>
+                                ${slidesHtml}
                                 <button class="prev-slide absolute top-1/2 left-4 -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 rounded-full leading-none cta-link">&lt;</button>
                                 <button class="next-slide absolute top-1/2 right-4 -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 rounded-full leading-none cta-link">&gt;</button>
                             </div>
@@ -239,13 +236,36 @@ document.addEventListener('DOMContentLoaded', function() {
                                 </div>
                                 <h4 class="text-lg md:text-xl font-bold mb-3">Technologies Used:</h4>
                                 <ul class="flex flex-wrap gap-2">
-                                    ${project.technologies.map(tech => `<li class="bg-gray-800 text-xs font-semibold py-1 px-3 rounded-full">${tech}</li>`).join('')}
+                                    ${project.technologies.map(tech => `<li class="tech-tag text-xs font-semibold py-1 px-3 rounded-full">${tech}</li>`).join('')}
                                 </ul>
                             </div>
                         </div>
                     </div>
                 </div>`;
             modalsContainer.insertAdjacentHTML('beforeend', modalHtml);
+        });
+    }
+    
+    function displayProjectCards(projectsToDisplay) {
+        if (!projectGrid) return;
+        projectGrid.innerHTML = '';
+        const categoryColors = { engineering: 'text-indigo-400', 'ml-research': 'text-pink-400', design: 'text-teal-400' };
+
+        projectsToDisplay.forEach(project => {
+            const cardHtml = `
+                <div class="project-card-wrapper animated-element" data-category="${project.category}">
+                    <div class="project-card bg-tertiary rounded-lg overflow-hidden cursor-pointer" data-modal-target="${project.id}">
+                        <div class="relative overflow-hidden h-56">
+                            <img src="${project.cover_image}" alt="${project.title}" class="card-image w-full h-full object-cover">
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold mb-2">${project.title}</h3>
+                            <p class="text-desc mb-4 text-sm">${project.short_description}</p>
+                            <span class="text-xs font-semibold capitalize ${categoryColors[project.category] || 'text-gray-400'}">${project.category.replace('-', ' ')}</span>
+                        </div>
+                    </div>
+                </div>`;
+            projectGrid.insertAdjacentHTML('beforeend', cardHtml);
         });
         initScrollAnimations();
     }
@@ -266,7 +286,9 @@ document.addEventListener('DOMContentLoaded', function() {
         
         document.body.addEventListener('click', (e) => {
             const card = e.target.closest('.project-card');
-            if (card) openModal(document.getElementById(card.dataset.modalTarget));
+            if (card) {
+                openModal(document.getElementById(card.dataset.modalTarget));
+            }
             
             const projectModal = e.target.closest('.project-detail-modal');
             if (projectModal && (e.target.classList.contains('modal-close') || e.target === projectModal)) {
@@ -296,6 +318,11 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function closeModal(modal) {
         if (!modal) return;
+        const iframe = modal.querySelector('iframe');
+        if (iframe) {
+            const iframeSrc = iframe.src;
+            iframe.src = iframeSrc;
+        }
         modal.querySelector('.modal-content').classList.add('opacity-0', 'scale-95');
         setTimeout(() => {
             modal.classList.add('invisible', 'opacity-0');
@@ -305,14 +332,25 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function setupSlideshow(modal) {
         const slides = modal.querySelectorAll('.slide');
-        if (slides.length <= 1) return;
         const prevBtn = modal.querySelector('.prev-slide');
         const nextBtn = modal.querySelector('.next-slide');
+
+        if (slides.length <= 1) {
+            prevBtn.style.display = 'none';
+            nextBtn.style.display = 'none';
+            return;
+        }
+        prevBtn.style.display = 'block';
+        nextBtn.style.display = 'block';
+
         let currentIndex = 0;
         const showSlide = (index) => {
-            slides.forEach((slide, i) => slide.classList.toggle('hidden', i !== index));
+            slides.forEach((slide, i) => {
+                slide.classList.toggle('hidden', i !== index);
+            });
             currentIndex = index;
         };
+
         prevBtn.addEventListener('click', (e) => {
             e.stopPropagation();
             showSlide((currentIndex - 1 + slides.length) % slides.length);
@@ -343,31 +381,43 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    themeToggleBtn.addEventListener('click', () => {
-        const currentTheme = htmlEl.classList.contains('dark') ? 'light' : 'dark';
-        toggleTheme(currentTheme);
-    });
+    if(themeToggleBtn){
+        themeToggleBtn.addEventListener('click', () => {
+            const currentTheme = htmlEl.classList.contains('dark') ? 'light' : 'dark';
+            toggleTheme(currentTheme);
+        });
+    }
 
-    mobileThemeToggleBtn.addEventListener('click', () => {
-        const currentTheme = htmlEl.classList.contains('dark') ? 'light' : 'dark';
-        toggleTheme(currentTheme);
-    });
+    if(mobileThemeToggleBtn){
+        mobileThemeToggleBtn.addEventListener('click', () => {
+            const currentTheme = htmlEl.classList.contains('dark') ? 'light' : 'dark';
+            toggleTheme(currentTheme);
+        });
+    }
 
     // --- Initial Load ---
     if (typeof projectsData !== 'undefined') {
-        projectsData.sort((a, b) => (a.order || 999) - (b.order || 999));
-        displayProjects(projectsData);
+        generateAllModals(projectsData);
+        
+        const featuredProjectElements = document.querySelectorAll('#featured-projects-container .project-card');
+        const featuredProjectIds = Array.from(featuredProjectElements).map(el => el.dataset.modalTarget);
+
+        const otherProjects = projectsData.filter(project => !featuredProjectIds.includes(project.id));
+        
+        otherProjects.sort((a, b) => (a.order || 999) - (b.order || 999));
+        displayProjectCards(otherProjects);
+        
         setupProjectEventListeners();
+        
         initScrollAnimations();
     } else {
         console.error('Project data not found. Make sure projects-data.js is loaded correctly.');
     }
 
-    // Set initial theme
     const savedTheme = localStorage.getItem('theme');
     if (savedTheme) {
         toggleTheme(savedTheme);
     } else {
-        toggleTheme('light'); // Default to light mode
+        toggleTheme('light');
     }
 });
