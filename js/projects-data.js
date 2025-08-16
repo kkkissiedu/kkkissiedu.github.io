@@ -310,6 +310,7 @@ const projectsData = [
     "title": "Unilever Products Showcase",
     "short_description": "Immersive VR showcase of Unilever products",
     "cover_image": "images/projects/3D/unilever_main.svg",
+    "youtube_video_id": "cv-PEmzjJyM",
     "slideshow_images": [
       "images/projects/3D/unilever_main.svg",
       "images/projects/3D/UNILEVER1.webp",
@@ -335,7 +336,6 @@ const projectsData = [
     "title": "SuCasa Virtual Tour",
     "short_description": "Immersive VR shopping experience for SuCasa customers",
     "cover_image": "images/projects/3D/sucasa_main.webp",
-    "youtube_video_id": "GREgRXG-fbo",
     "slideshow_images": [
       "images/projects/3D/sucasa_main.webp",
       "images/projects/3D/sucasa_3.webp",
