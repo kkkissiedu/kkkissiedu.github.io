@@ -31,7 +31,7 @@ const projectsData = [
   },
   {
     "id": "modal-2",
-    "order": 2,
+    "order": 12,
     "category": "engineering",
     "title": "Pineapple Hill Residential",
     "short_description": "Pineapple Hill Residential",
@@ -57,7 +57,7 @@ const projectsData = [
   },
   {
     "id": "modal-3",
-    "order": 8,
+    "order": 13,
     "category": "engineering",
     "title": "Spectra Medical Center",
     "short_description": "Spectra Medical Center",
@@ -84,7 +84,7 @@ const projectsData = [
   },
   {
     "id": "modal-4",
-    "order": 5,
+    "order": 10,
     "category": "engineering",
     "title": "Zenkawa Hospital",
     "short_description": "Zenkawa Hospital",
@@ -138,7 +138,7 @@ const projectsData = [
   },
   {
     "id": "modal-6",
-    "order": 10,
+    "order": 8,
     "category": "ml-research",
     "title": "Concrete Strength Prediction",
     "short_description": "A Random Forest Regressor Model for estimating the Compressive Strength of Concrete",
@@ -193,7 +193,7 @@ const projectsData = [
   },
   {
     "id": "modal-8",
-    "order":15,
+    "order": 9,
     "category": "ml-research",
     "title": "Earthquake Response Spectrum Estimator",
     "short_description": "Python script for quickly generating response spectra for earthquake engineering.",
@@ -218,7 +218,7 @@ const projectsData = [
   },
   {
     "id": "modal-9",
-    "order": 4,
+    "order": 6,
     "category": "ml-research",
     "title": "Fatigue Life of Locally Manufactured Rebars",
     "short_description": "Laboratory testing and Numerical simulation of Fatigue Life of Locally Manufactured Rebars ",
@@ -249,7 +249,7 @@ const projectsData = [
   },
   {
     "id": "modal-10",
-    "order": 13,
+    "order": 20,
     "category": "ml-research",
     "title": "Traffic Car Counter",
     "short_description": "Realtime Car Counter based on YOLOv8",
@@ -276,7 +276,7 @@ const projectsData = [
   },
   {
     "id": "modal-11",
-    "order": 12,
+    "order": 17,
     "category": "design",
     "title": "MTN HYPE Event",
     "short_description": "Branded 3D assets for MTN HYPE Event",
@@ -305,7 +305,7 @@ const projectsData = [
   },
   {
     "id": "modal-12",
-    "order": 6,
+    "order": 15,
     "category": "design",
     "title": "Unilever Products Showcase",
     "short_description": "Immersive VR showcase of Unilever products",
@@ -330,7 +330,7 @@ const projectsData = [
   },
   {
     "id": "modal-13",
-    "order":9,
+    "order":16,
     "category": "design",
     "title": "SuCasa Virtual Tour",
     "short_description": "Immersive VR shopping experience for SuCasa customers",
@@ -361,7 +361,7 @@ const projectsData = [
   },
   {
     "id": "modal-14",
-    "order": 14,
+    "order": 18,
     "category": "design",
     "title": "Tidal Rave 23 & 24 (Canceled)",
     "short_description": "Visuals for Tidal Rave Music Festival",
@@ -392,7 +392,7 @@ const projectsData = [
   },
   {
     "id": "modal-15",
-    "order": 3,
+    "order": 14,
     "category": "design",
     "title": "VAAL Bedroom Units AR/VR Experience",
     "short_description": "3D Models of the 3 and 4 Bedroom Units for VAAL Real Estate Ghana",
@@ -412,6 +412,147 @@ const projectsData = [
     "technologies": [
       "Blender",
       "Adobe Substance Painter",
+    ]
+  },
+  {
+    "id": "modal-16",
+    "order": 2,
+    "category": "ml-research",
+    "title": "Synthetic Concrete Crack Generation with VAEs",
+    "short_description": "A Variational Autoencoder (VAE) trained to generate high-fidelity, synthetic concrete crack images to solve data scarcity.",
+    "cover_image": "images/projects/ML/vae_main.webp",
+    "github_link": "https://github.com/kkkissiedu/VAE-Crack-Synthesis",
+    "slideshow_images": [
+      "images/projects/ML/vae_main.webp",
+      "images/projects/ML/vae_1.webp"
+    ],
+    "case_study": {
+      "problem": "A significant challenge in developing robust computer vision models for structural health monitoring is the scarcity of diverse, high-quality data. Manually collecting and annotating thousands of crack images is impractical and expensive.",
+      "process": "A Variational Autoencoder (VAE) was built and trained in PyTorch on a dataset of concrete crack images. The VAE learns a compressed, latent representation of the data, allowing it to generate entirely new, realistic images of concrete cracks by sampling from this learned latent space.",
+      "outcome": "The trained model successfully generates high-fidelity, synthetic images of concrete cracks. This provides a scalable and cost-effective solution to data scarcity, enabling the creation of larger and more diverse datasets for training other computer vision models, like the U-Net segmentation model."
+    },
+    "technologies": [
+      "Python",
+      "PyTorch",
+      "Variational Autoencoder (VAE)",
+      "Generative Models",
+      "NumPy",
+      "Matplotlib",
+      "Jupyter Notebook"
+    ]
+  },
+  {
+    "id": "modal-17",
+    "order": 4,
+    "category": "ml-research",
+    "title": "Uncertainty-Aware Surrogate Modeling",
+    "short_description": "Comparing Gaussian Process Regressors and Deep Ensembles for predicting concrete strength with uncertainty quantification.",
+    "cover_image": "images/projects/ML/surrogate_main.webp",
+    "github_link": "https://github.com/kkkissiedu/Uncertainty-Aware-Surrogate-Modeling",
+    "slideshow_images": [
+      "images/projects/ML/surrogate_main.webp",
+      "images/projects/ML/surrogate_1.webp"
+    ],
+    "case_study": {
+      "problem": "Traditional predictive models in engineering often provide point estimates without quantifying their own confidence. For safety-critical applications like predicting concrete strength, it's crucial to have reliable uncertainty bounds for each prediction.",
+      "process": "Two advanced probabilistic modeling techniques were implemented and compared: Gaussian Process Regressors (GPR) and Deep Ensembles with Aleatoric Uncertainty. Both models were trained on the same concrete compressive strength dataset to create reliable surrogate models that could predict strength and quantify uncertainty.",
+      "outcome": "Both models successfully produced reliable predictions for concrete compressive strength, complete with principled uncertainty bounds. This work demonstrates a robust methodology for creating uncertainty-aware models, which are essential for risk assessment and decision-making in structural engineering."
+    },
+    "technologies": [
+      "Python",
+      "PyTorch",
+      "Scikit-learn",
+      "Gaussian Process Regressor (GPR)",
+      "Deep Ensembles",
+      "Uncertainty Quantification",
+      "Pandas",
+      "Matplotlib",
+      "Jupyter Notebook"
+    ]
+  },
+  {
+    "id": "modal-18",
+    "order": 3,
+    "category": "ml-research",
+    "title": "PINN for Beam Deflection",
+    "short_description": "A Physics-Informed Neural Network (PINN) that solves the Euler-Bernoulli beam equation for deflection analysis.",
+    "cover_image": "images/projects/ML/pinn_main.webp",
+    "github_link": "https://github.com/kkkissiedu/PINN-for-Beam-Deflection",
+    "slideshow_images": [
+      "images/projects/ML/pinn_main.webp",
+      "images/projects/ML/pinn_1.webp"
+    ],
+    "case_study": {
+      "problem": "Traditional numerical methods like the Finite Element Method (FEM) for solving differential equations can be computationally expensive and require extensive domain meshing. There is a need for an alternative, meshless approach that leverages deep learning.",
+      "process": "A Physics-Informed Neural Network (PINN) was built in PyTorch. The model's loss function was designed to enforce the governing PDE of the Euler-Bernoulli beam theory and its boundary conditions directly, allowing the network to learn the physically correct solution without labeled training data.",
+      "outcome": "The trained PINN successfully solved the Euler-Bernoulli equation, accurately predicting the deflection of a simply supported beam under a uniform load. This project demonstrates the potential of PINNs as a powerful, mesh-free tool for solving complex engineering problems."
+    },
+    "technologies": [
+      "Python",
+      "PyTorch",
+      "Physics-Informed Neural Network (PINN)",
+      "Deep Learning",
+      "Euler-Bernoulli Beam Theory",
+      "Matplotlib",
+      "Jupyter Notebook"
+    ]
+  },
+  {
+    "id": "modal-19",
+    "order": 5,
+    "category": "ml-research",
+    "title": "Probabilistic Damage Classification with BNNs",
+    "short_description": "A Bayesian Neural Network (BNN) that classifies concrete damage while quantifying its own prediction uncertainty.",
+    "cover_image": "images/projects/ML/bnn_main.webp",
+    "github_link": "https://github.com/kkkissiedu/BNN-Crack-Classifier",
+    "slideshow_images": [
+      "images/projects/ML/bnn_main.webp",
+      "images/projects/ML/bnn_1.webp"
+    ],
+    "case_study": {
+      "problem": "Standard deep learning models for damage classification often act as 'black boxes,' providing predictions without indicating their confidence. This is a significant drawback for safety-critical engineering applications where understanding a model's uncertainty is crucial.",
+      "process": "A Bayesian Neural Network (BNN) was implemented using PyTorch and Pyro. Unlike a standard CNN, the BNN learns a distribution over its weights, allowing it to perform approximate Bayesian inference. This enables the model to quantify its uncertainty for each prediction.",
+      "outcome": "The BNN successfully classifies concrete images as cracked or uncracked while also providing a measure of its predictive uncertainty. This probabilistic approach is critical for building more reliable and trustworthy AI systems for structural health monitoring, allowing engineers to identify predictions that the model is uncertain about for further review."
+    },
+    "technologies": [
+      "Python",
+      "PyTorch",
+      "Pyro (Probabilistic Programming)",
+      "Bayesian Neural Network (BNN)",
+      "Uncertainty Quantification",
+      "Scikit-learn",
+      "Jupyter Notebook"
+    ]
+  },
+  {
+    "id": "modal-20",
+    "order": 19,
+    "category": "design",
+    "title": "Experience Africa: Ashanti Empire",
+    "short_description": "Lead 3D Designer for a project focused on recreating historic scenes from the Ashanti Empire in Unreal Engine and Unity.",
+    "cover_image": "images/projects/3D/360africa_main.webp",
+    "youtube_video_ids": ["dQw4w9WgXcQ", "3JZ_D3ELwOQ"],
+    "slideshow_images": [
+      "images/projects/3D/images/projects/3D/360africa_main.webp",
+      "images/projects/3D/ashanti_golden_stool.png",
+      "images/projects/3D/ashanti_marketplace.png",
+      "images/projects/3D/ashanti_anokye_shrine.png",
+      "images/projects/3D/ashanti_assets_1.png",
+      "images/projects/3D/ashanti_assets_2.png"
+    ],
+    "case_study": {
+      "overview": "This project aims to digitally recreate and preserve key historical scenes from the Ashanti Empire, focusing on the story of how the kingdom was united under Osei Tutu I. The goal is to create immersive and educational experiences.",
+      "contributions": "As the Lead 3D Designer, I was responsible for modeling, sculpting, and texturing a large collection of historically accurate assets. I built and lit several key scenes, including Osei Tutu's House, the Denkyirahene's courtyard, the marketplace, Okomfo Anokye's shrine, and the pivotal scene depicting the descent of the Golden Stool."
+    },
+    "technologies": [
+      "Unreal Engine",
+      "Unity",
+      "Blender",
+      "ZBrush",
+      "Substance Painter",
+      "Marmoset Toolbag",
+      "Adobe Photoshop",
+      "Adobe Illustrator"
     ]
   }
 ];

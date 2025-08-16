@@ -226,6 +226,16 @@ document.addEventListener('DOMContentLoaded', function() {
 
             let slidesHtml = '';
             let isFirstSlide = true;
+            if (project.youtube_video_ids && project.youtube_video_ids.length > 0) {
+                project.youtube_video_ids.forEach(videoId => {
+                    slidesHtml += `
+                        <div class="slide video-slide">
+                            <iframe class="youtube-iframe" src="https://www.youtube.com/embed/${videoId}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                        </div>`;
+                });
+                isFirstSlide = false;
+            }
+            
             if (project.youtube_video_id) {
                 slidesHtml += `
                     <div class="slide video-slide">
@@ -233,6 +243,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     </div>`;
                 isFirstSlide = false;
             }
+
             slidesHtml += project.slideshow_images.map((img, index) => {
                 const hiddenClass = (!isFirstSlide && index === 0) || (isFirstSlide && index !== 0) ? 'hidden' : '';
                 return `<div class="slide ${hiddenClass}" data-index="${index}">
@@ -312,6 +323,8 @@ document.addEventListener('DOMContentLoaded', function() {
                     
                     cards.forEach(card => {
                         card.classList.add('hidden-project');
+                        // Hide immediately for filtering logic
+                        card.style.display = 'none';
                     });
                     
                     setTimeout(() => {
@@ -321,12 +334,10 @@ document.addEventListener('DOMContentLoaded', function() {
                                 card.style.display = 'block';
                                 setTimeout(() => {
                                     card.classList.remove('hidden-project');
-                                }, 20);
-                            } else {
-                                card.style.display = 'none';
+                                }, 20); // Small delay to trigger transition
                             }
                         });
-                    }, 400);
+                    }, 150); // Delay to allow fade-out
                 }
             });
         }
@@ -365,10 +376,12 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function closeModal(modal) {
         if (!modal) return;
-        const iframe = modal.querySelector('iframe');
-        if (iframe) {
-            const iframeSrc = iframe.src;
-            iframe.src = iframeSrc;
+        const iframes = modal.querySelectorAll('iframe');
+        if (iframes.length > 0) {
+            iframes.forEach(iframe => {
+                const iframeSrc = iframe.src;
+                iframe.src = iframeSrc;
+            });
         }
         modal.querySelector('.modal-content').classList.add('opacity-0', 'scale-95');
         setTimeout(() => {
@@ -444,8 +457,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // --- Initial Load ---
     if (typeof projectsData !== 'undefined') {
+        // Generate modals for ALL projects first
         generateAllModals(projectsData);
         
+        // Get IDs of featured projects from the DOM to filter them out of the main grid
         const featuredProjectElements = document.querySelectorAll('#featured-projects-container .project-card');
         const featuredProjectIds = Array.from(featuredProjectElements).map(el => el.dataset.modalTarget);
 

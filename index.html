@@ -106,12 +106,6 @@
     <section id="projects" class="py-20 md:py-32 bg-secondary">
         <div class="container mx-auto px-4 sm:px-6">
             <div class="text-center mb-12 animated-element"><h2 class="text-3xl md:text-4xl font-bold mb-4">My Portfolio</h2><p class="max-w-2xl mx-auto text-base md:text-lg">A selection of projects that demonstrate my skills across different domains.</p></div>
-            <div class="flex flex-wrap justify-center gap-2 mb-12 animated-element" id="filter-container">
-                <button class="filter-btn active py-2 px-4 rounded-lg font-semibold transition-colors cta-link" data-filter="all">All</button>
-                <button class="filter-btn py-2 px-4 rounded-lg font-semibold transition-colors" data-filter="engineering">Structural Engineering</button>
-                <button class="filter-btn py-2 px-4 rounded-lg font-semibold transition-colors" data-filter="ml-research">ML & Research</button>
-                <button class="filter-btn py-2 px-4 rounded-lg font-semibold transition-colors" data-filter="design">3D Design</button>
-            </div>
 
             <div class="mb-16">
                 <h3 class="text-2xl md:text-3xl font-bold text-center mb-8 section-title animated-element">Featured Projects</h3>
@@ -128,11 +122,11 @@
                     </div>
                     <div class="project-card bg-tertiary rounded-lg overflow-hidden cursor-pointer animated-element" data-modal-target="modal-20">
                         <div class="relative overflow-hidden h-64 md:h-80">
-                            <img src="images/projects/3D/ashanti_osei_tutu_house.png" alt="Experience Africa Project" class="card-image w-full h-full object-cover">
+                            <img src="images/projects/3D/360africa_main.webp" alt="Experience Africa Project" class="card-image w-full h-full object-cover">
                         </div>
                         <div class="p-6">
                             <h3 class="text-xl font-bold mb-2">Experience Africa: Ashanti Empire</h3>
-                            <p class="text-desc mb-4 text-sm">Lead 3D Designer for a project focused on recreating historic scenes from the Ashanti Empire in Unreal Engine.</p>
+                            <p class="text-desc mb-4 text-sm">Lead 3D Designer for a project focused on recreating historic scenes from the Ashanti Empire in VR using Unreal Engine and Unity.</p>
                             <span class="text-xs font-semibold capitalize text-teal-400">3D Design</span>
                         </div>
                     </div>
@@ -150,6 +144,15 @@
             </div>
 
             <h3 class="text-2xl md:text-3xl font-bold text-center mb-8 section-title animated-element">Other Projects</h3>
+            
+            <h4 class="text-lg font-semibold text-center mb-4 animated-element">Click a category to filter projects:</h4>
+            
+            <div class="flex flex-wrap justify-center gap-2 mb-12 animated-element" id="filter-container">
+                <button class="filter-btn active py-2 px-4 rounded-lg font-semibold transition-colors cta-link" data-filter="all">All</button>
+                <button class="filter-btn py-2 px-4 rounded-lg font-semibold transition-colors" data-filter="engineering">Structural Engineering</button>
+                <button class="filter-btn py-2 px-4 rounded-lg font-semibold transition-colors" data-filter="ml-research">ML & Research</button>
+                <button class="filter-btn py-2 px-4 rounded-lg font-semibold transition-colors" data-filter="design">3D Design</button>
+            </div>
 
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8" id="project-grid"></div>
         </div>
