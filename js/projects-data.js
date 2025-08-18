@@ -424,6 +424,7 @@ const projectsData = [
     "github_link": "https://github.com/kkkissiedu/VAE-Crack-Synthesis",
     "slideshow_images": [
       "images/projects/ML/vae_main.webp",
+      "images/projects/ML/vae.webp",
       "images/projects/ML/vae_1.webp"
     ],
     "case_study": {
