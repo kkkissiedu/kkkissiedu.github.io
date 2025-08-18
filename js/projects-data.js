@@ -452,7 +452,8 @@ const projectsData = [
     "github_link": "https://github.com/kkkissiedu/Uncertainty-Aware-Surrogate-Modeling",
     "slideshow_images": [
       "images/projects/ML/surrogate_main.webp",
-      "images/projects/ML/surrogate_1.webp"
+      "images/projects/ML/surrogate_1.webp",
+      "images/projects/ML/surrogate_2.webp"
     ],
     "case_study": {
       "problem": "Traditional predictive models in engineering often provide point estimates without quantifying their own confidence. For safety-critical applications like predicting concrete strength, it's crucial to have reliable uncertainty bounds for each prediction.",
