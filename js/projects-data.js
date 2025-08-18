@@ -481,7 +481,7 @@ const projectsData = [
     "github_link": "https://github.com/kkkissiedu/PINN-for-Beam-Deflection",
     "slideshow_images": [
       "images/projects/ML/pinn_main.webp",
-      "images/projects/ML/pinn_1.webp"
+      "images/projects/ML/pinn.webp"
     ],
     "case_study": {
       "problem": "Traditional numerical methods like the Finite Element Method (FEM) for solving differential equations can be computationally expensive and require extensive domain meshing. There is a need for an alternative, meshless approach that leverages deep learning.",
