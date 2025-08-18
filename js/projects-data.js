@@ -533,7 +533,7 @@ const projectsData = [
     "title": "Experience Africa: Ashanti Empire",
     "short_description": "Lead 3D Designer for a project focused on recreating historic scenes from the Ashanti Empire in Unreal Engine and Unity.",
     "cover_image": "images/projects/3D/360africa_main.webp",
-    "youtube_video_ids": ["dQw4w9WgXcQ", "3JZ_D3ELwOQ"],
+    "youtube_video_ids": ["", ""],
     "slideshow_images": [
       "images/projects/3D/images/projects/3D/360africa_main.webp",
       "images/projects/3D/ashanti_golden_stool.png",
