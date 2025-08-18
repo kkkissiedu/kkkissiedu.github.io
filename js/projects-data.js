@@ -530,7 +530,7 @@ const projectsData = [
     "id": "modal-20",
     "order": 19,
     "category": "design",
-    "title": "Experience Africa: Ashanti Empire",
+    "title": "(Ongoing) Experience Africa: Ashanti Empire",
     "short_description": "Lead 3D Designer for a project focused on recreating historic scenes from the Ashanti Empire in Unreal Engine and Unity.",
     "cover_image": "images/projects/3D/360africa_main.webp",
     "youtube_video_ids": ["", ""],
@@ -543,7 +543,7 @@ const projectsData = [
       "images/projects/3D/ashanti_assets_2.png"
     ],
     "case_study": {
-      "overview": "This project aims to digitally recreate and preserve key historical scenes from the Ashanti Empire, focusing on the story of how the kingdom was united under Osei Tutu I. The goal is to create immersive and educational experiences. The released product will be a VR app for the Oculus Quest with 360-degree cinematics and interactive environments.",
+      "overview": "(Ongoing) This project aims to digitally recreate and preserve key historical scenes from the Ashanti Empire, focusing on the story of how the kingdom was united under Osei Tutu I. The goal is to create immersive and educational experiences. The released product will be a VR app for the Oculus Quest with 360-degree cinematics and interactive environments.",
       "contributions": "As the Lead 3D Designer, I was responsible for modeling, sculpting, and texturing a large collection of historically accurate assets. I built and lit several key scenes, including Osei Tutu's House, the Denkyirahene's courtyard, the marketplace, Okomfo Anokye's shrine, and the pivotal scene depicting the descent of the Golden Stool. The environments were built in Unreal Engine and Unity."
     },
     "technologies": [
