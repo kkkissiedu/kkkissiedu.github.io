@@ -509,7 +509,7 @@ const projectsData = [
     "github_link": "https://github.com/kkkissiedu/BNN-Crack-Classifier",
     "slideshow_images": [
       "images/projects/ML/bnn_main.webp",
-      "images/projects/ML/bnn_1.webp"
+      "images/projects/ML/bnn.webp"
     ],
     "case_study": {
       "problem": "Standard deep learning models for damage classification often act as 'black boxes,' providing predictions without indicating their confidence. This is a significant drawback for safety-critical engineering applications where understanding a model's uncertainty is crucial.",
