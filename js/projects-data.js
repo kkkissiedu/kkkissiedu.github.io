@@ -534,6 +534,7 @@ const projectsData = [
     "short_description": "Lead 3D Designer for a project focused on recreating historic scenes from the Ashanti Empire in Unreal Engine and Unity.",
     "cover_image": "images/projects/3D/360africa_main.webp",
     "youtube_video_ids": ["", ""],
+    "progress_pdf_url": "files/Project_Progress - Kwabena Kissiedu_EA.pdf",
     "slideshow_images": [
       "images/projects/3D/images/projects/3D/360africa_main.webp",
       "images/projects/3D/ashanti_golden_stool.png",
