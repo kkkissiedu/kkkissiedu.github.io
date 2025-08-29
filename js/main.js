@@ -204,8 +204,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // --- Project Generation Logic ---
-    // --- Project Generation Logic ---
     function generateAllModals(allProjects) {
         modalsContainer.innerHTML = '';
         const modalCategoryColors = { engineering: 'text-indigo-400 bg-indigo-900', 'ml-research': 'text-pink-400 bg-pink-900', design: 'text-teal-400 bg-teal-900' };
@@ -247,9 +245,9 @@ document.addEventListener('DOMContentLoaded', function() {
                 ? `<a href="${project.github_link}" target="_blank" rel="noopener noreferrer" class="github-button inline-flex items-center text-sm font-semibold py-2 px-4 rounded-lg transition-colors cta-link">View on GitHub</a>`
                 : '';
             
-            // --- NEW: Check for progress PDF and create button link ---
+            // --- UPDATED: Enhanced button style for max visibility ---
             const progressPdfButtonHtml = project.progress_pdf_url
-                ? `<a href="${project.progress_pdf_url}" target="_blank" rel="noopener noreferrer" class="cv-button font-semibold py-2 px-4 rounded-lg transition-colors cta-link">View Project Progress (PDF)</a>`
+                ? `<a href="${project.progress_pdf_url}" target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto inline-block text-center bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-6 rounded-lg transition-colors cta-link">View Full Project Progress (PDF)</a>`
                 : '';
 
             const modalHtml = `
@@ -261,12 +259,16 @@ document.addEventListener('DOMContentLoaded', function() {
                             <div>
                                 <h3 class="text-2xl md:text-4xl font-bold mb-4 section-title">${project.title}</h3>
                                 <span class="text-xs font-semibold capitalize ${modalCategoryColors[project.category] || 'text-gray-400 bg-gray-900'} bg-opacity-50 py-1 px-3 rounded-full">${project.category.replace('-', ' ')}</span>
+                                
+                                ${project.progress_pdf_url ? `<div class="mt-6">${progressPdfButtonHtml}</div>` : ''}
+
                                 <div class="my-6 space-y-6 text-sm md:text-base">${caseStudyHtml}</div>
+                                
                                 <h4 class="text-lg md:text-xl font-bold mb-3">Technologies Used:</h4>
                                 <ul class="flex flex-wrap gap-2 mb-6">${project.technologies.map(tech => `<li class="tech-tag text-xs font-semibold py-1 px-3 rounded-full">${tech}</li>`).join('')}</ul>
+                                
                                 <div class="flex flex-wrap gap-4">
                                     ${githubButtonHtml}
-                                    ${progressPdfButtonHtml}
                                 </div>
                             </div>
                         </div>
