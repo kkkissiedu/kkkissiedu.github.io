@@ -306,8 +306,8 @@ document.addEventListener('DOMContentLoaded', function() {
             const cardHtml = `
                 <div class="project-card-wrapper animated-element" data-category="${project.category}">
                     <div class="project-card bg-tertiary rounded-lg overflow-hidden cursor-pointer" data-modal-target="${project.id}">
-                        <div class="relative overflow-hidden h-56">
-                            <img src="${project.cover_image}" alt="${project.title}" class="card-image w-full h-full object-contain" loading="lazy">
+                        <div class="relative overflow-hidden">
+                            <img src="${project.cover_image}" alt="${project.title}" class="card-image w-full object-cover" loading="lazy">
                         </div>
                         <div class="p-6">
                             <h3 class="text-xl font-bold mb-2">${project.title}</h3>
@@ -493,5 +493,4 @@ document.addEventListener('DOMContentLoaded', function() {
         toggleTheme('dark'); 
     }
 });
-
 
