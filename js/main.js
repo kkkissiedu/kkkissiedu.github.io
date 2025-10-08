@@ -249,7 +249,7 @@ document.addEventListener('DOMContentLoaded', function() {
             slidesHtml += project.slideshow_images.map((img, index) => {
                 const hiddenClass = (!isFirstSlide && index === 0) || (isFirstSlide && index !== 0) ? 'hidden' : '';
                 return `<div class="slide ${hiddenClass}" data-index="${index}">
-                            <img src="${img}" class="slide-image rounded-lg w-full h-full object-contain bg-black/10 cursor-pointer">
+                            <img src="${img}" class="slide-image rounded-lg w-full h-full object-contain cursor-pointer">
                             <div class="expand-text">Click to expand image</div>
                         </div>`;
             }).join('');
@@ -306,7 +306,7 @@ document.addEventListener('DOMContentLoaded', function() {
             const cardHtml = `
                 <div class="project-card-wrapper animated-element" data-category="${project.category}">
                     <div class="project-card bg-tertiary rounded-lg overflow-hidden cursor-pointer" data-modal-target="${project.id}">
-                        <div class="relative overflow-hidden h-56 bg-black/10">
+                        <div class="relative overflow-hidden h-56">
                             <img src="${project.cover_image}" alt="${project.title}" class="card-image w-full h-full object-contain" loading="lazy">
                         </div>
                         <div class="p-6">
@@ -493,4 +493,5 @@ document.addEventListener('DOMContentLoaded', function() {
         toggleTheme('dark'); 
     }
 });
+
 
