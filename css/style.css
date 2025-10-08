@@ -166,6 +166,11 @@ html:not(.dark) .filter-btn.active {
     object-fit: contain;
 }
 
+/* Specific sizes for bento icons to replace inline styles */
+#icon-prota { height: 150px; width: 150px; }
+#icon-abaqus, #icon-revit, #icon-autocad, #icon-midas, #icon-tekla, #icon-etabs { height: 200px; }
+
+
 #lightbox {
     transition: opacity 0.3s ease, visibility 0.3s ease;
 }
@@ -255,7 +260,7 @@ nav .nav-link, #mobile-menu a, header > div > a:not(.section-title), header butt
 .modal-header {
     border-color: var(--border-color);
 }
-.tech-tag, .github-button {
+.tech-tag, .github-button, .progress-pdf-button {
     background-color: var(--bg-tertiary);
     color: var(--text-primary);
 }
@@ -381,3 +386,4 @@ html:not(.dark) .text-teal-400 { color: #0d9488; }
     background-color: #4f46e5;
     border-radius: 10px;
 }
+

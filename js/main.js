@@ -204,6 +204,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
+    // --- Project Generation Logic ---
     function generateAllModals(allProjects) {
         modalsContainer.innerHTML = '';
         const modalCategoryColors = { engineering: 'text-indigo-400 bg-indigo-900', 'ml-research': 'text-pink-400 bg-pink-900', design: 'text-teal-400 bg-teal-900' };
@@ -227,49 +228,67 @@ document.addEventListener('DOMContentLoaded', function() {
             let isFirstSlide = true;
             if (project.youtube_video_ids && project.youtube_video_ids.length > 0) {
                 project.youtube_video_ids.forEach(videoId => {
-                    if (!videoId) return;
-                    slidesHtml += `<div class="slide video-slide"><iframe class="youtube-iframe" src="https://www.youtube.com/embed/${videoId}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>`;
+                    if(videoId) { // Ensure videoId is not empty
+                        slidesHtml += `
+                            <div class="slide video-slide">
+                                <iframe class="youtube-iframe" src="https://www.youtube.com/embed/${videoId}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                            </div>`;
+                    }
                 });
-                isFirstSlide = false;
+                isFirstSlide = slidesHtml === '';
             }
+            
             if (project.youtube_video_id) {
-                slidesHtml += `<div class="slide video-slide"><iframe class="youtube-iframe" src="https://www.youtube.com/embed/${project.youtube_video_id}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>`;
+                slidesHtml += `
+                    <div class="slide video-slide">
+                        <iframe class="youtube-iframe" src="https://www.youtube.com/embed/${project.youtube_video_id}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                    </div>`;
                 isFirstSlide = false;
             }
+
             slidesHtml += project.slideshow_images.map((img, index) => {
                 const hiddenClass = (!isFirstSlide && index === 0) || (isFirstSlide && index !== 0) ? 'hidden' : '';
-                return `<div class="slide ${hiddenClass}" data-index="${index}"><img src="${img}" class="slide-image rounded-lg w-full h-full object-cover cursor-pointer"><div class="expand-text">Click to expand image</div></div>`;
+                return `<div class="slide ${hiddenClass}" data-index="${index}">
+                            <img src="${img}" class="slide-image rounded-lg w-full h-full object-contain bg-black/10 cursor-pointer">
+                            <div class="expand-text">Click to expand image</div>
+                        </div>`;
             }).join('');
 
             const githubButtonHtml = project.github_link
-                ? `<a href="${project.github_link}" target="_blank" rel="noopener noreferrer" class="github-button inline-flex items-center text-sm font-semibold py-2 px-4 rounded-lg transition-colors cta-link">View on GitHub</a>`
+                ? `<a href="${project.github_link}" target="_blank" rel="noopener noreferrer" class="github-button inline-flex items-center text-sm font-semibold py-2 px-4 rounded-lg transition-colors mt-4">View on GitHub</a>`
                 : '';
             
-            // --- UPDATED: Enhanced button style for max visibility ---
             const progressPdfButtonHtml = project.progress_pdf_url
-                ? `<a href="${project.progress_pdf_url}" target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto inline-block text-center bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-6 rounded-lg transition-colors cta-link">View Full Project Progress (PDF)</a>`
+                ? `<a href="${project.progress_pdf_url}" download class="progress-pdf-button inline-flex items-center text-sm font-semibold py-2 px-4 rounded-lg transition-colors mt-4 ml-2">View Project Progress</a>`
                 : '';
 
             const modalHtml = `
                 <div id="${project.id}" class="project-detail-modal modal fixed inset-0 bg-black bg-opacity-90 p-4 sm:p-8 opacity-0 invisible z-[100] overflow-y-auto flex items-center justify-center">
                     <div class="modal-content rounded-lg w-full max-w-6xl max-h-[95vh] flex flex-col transform scale-95 opacity-0">
-                        <div class="modal-header flex-shrink-0 p-4 flex justify-between items-center border-b"><h2 class="text-lg md:text-2xl font-bold">Project Details</h2><button class="modal-close text-4xl font-light cta-link">&times;</button></div>
+                        <div class="modal-header flex-shrink-0 p-4 flex justify-between items-center border-b">
+                             <h2 class="text-lg md:text-2xl font-bold">Project Details</h2>
+                             <button class="modal-close text-4xl font-light cta-link">&times;</button>
+                        </div>
                         <div class="flex-grow p-4 md:p-8 overflow-y-auto grid md:grid-cols-2 gap-6 md:gap-8">
-                            <div class="slideshow-container relative w-full h-64 md:h-full group">${slidesHtml}<button class="prev-slide absolute top-1/2 left-4 -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 rounded-full leading-none cta-link">&lt;</button><button class="next-slide absolute top-1/2 right-4 -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 rounded-full leading-none cta-link">&gt;</button></div>
+                            <div class="slideshow-container relative w-full h-64 md:h-full group">
+                                ${slidesHtml}
+                                <button class="prev-slide absolute top-1/2 left-4 -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 rounded-full leading-none cta-link">&lt;</button>
+                                <button class="next-slide absolute top-1/2 right-4 -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 rounded-full leading-none cta-link">&gt;</button>
+                            </div>
                             <div>
                                 <h3 class="text-2xl md:text-4xl font-bold mb-4 section-title">${project.title}</h3>
                                 <span class="text-xs font-semibold capitalize ${modalCategoryColors[project.category] || 'text-gray-400 bg-gray-900'} bg-opacity-50 py-1 px-3 rounded-full">${project.category.replace('-', ' ')}</span>
-                                
-                                ${project.progress_pdf_url ? `<div class="mt-6">${progressPdfButtonHtml}</div>` : ''}
-
-                                <div class="my-6 space-y-6 text-sm md:text-base">${caseStudyHtml}</div>
-                                
-                                <h4 class="text-lg md:text-xl font-bold mb-3">Technologies Used:</h4>
-                                <ul class="flex flex-wrap gap-2 mb-6">${project.technologies.map(tech => `<li class="tech-tag text-xs font-semibold py-1 px-3 rounded-full">${tech}</li>`).join('')}</ul>
-                                
-                                <div class="flex flex-wrap gap-4">
+                                <div class="flex flex-wrap">
                                     ${githubButtonHtml}
+                                    ${progressPdfButtonHtml}
                                 </div>
+                                <div class="my-6 space-y-6 text-sm md:text-base">
+                                    ${caseStudyHtml}
+                                </div>
+                                <h4 class="text-lg md:text-xl font-bold mb-3">Technologies Used:</h4>
+                                <ul class="flex flex-wrap gap-2">
+                                    ${project.technologies.map(tech => `<li class="tech-tag text-xs font-semibold py-1 px-3 rounded-full">${tech}</li>`).join('')}
+                                </ul>
                             </div>
                         </div>
                     </div>
@@ -287,8 +306,8 @@ document.addEventListener('DOMContentLoaded', function() {
             const cardHtml = `
                 <div class="project-card-wrapper animated-element" data-category="${project.category}">
                     <div class="project-card bg-tertiary rounded-lg overflow-hidden cursor-pointer" data-modal-target="${project.id}">
-                        <div class="relative overflow-hidden h-56">
-                            <img src="${project.cover_image}" alt="${project.title}" class="card-image w-full h-full object-cover" loading="lazy">
+                        <div class="relative overflow-hidden h-56 bg-black/10">
+                            <img src="${project.cover_image}" alt="${project.title}" class="card-image w-full h-full object-contain" loading="lazy">
                         </div>
                         <div class="p-6">
                             <h3 class="text-xl font-bold mb-2">${project.title}</h3>
@@ -470,6 +489,8 @@ document.addEventListener('DOMContentLoaded', function() {
     if (savedTheme) {
         toggleTheme(savedTheme);
     } else {
-        toggleTheme('light');
+        // Default to dark mode if no theme is saved
+        toggleTheme('dark'); 
     }
 });
+
