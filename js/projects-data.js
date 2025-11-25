@@ -1,4 +1,4 @@
-// To add, edit, or remove a project, just modify this array of objects.
+
 const projectsData = [
   {
     "id": "modal-1",
